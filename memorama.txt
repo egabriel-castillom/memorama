@@ -1,0 +1,19 @@
+JUEGO MEMORAMA.
+
+"UTILIZAR SESSION DE FLASK, PARA MOSTRAR/OCULTAR AL SELECCIONAR TARJETA"
+"COMPARACION DE SELECCION, SI ES COINCIDENTE DEVUELVE 1 PUNTO CON ECHO "
+
+*** switch para OCULTAR remover id /MOSTRAR CONTENIDO agregar id 
+mediante funcion almacenar ID inicial y comparar con segundo id ***
+
+Se requieren imagenes de un tema especifico. *web scraping script*
+Un inicio de sesion, que lleve la cuenta del puntaje *record mas alto*.
+El record es... mayor numero de puntos en 1 minuto.
+Plantilla de 4x3 = 6 pares. con acomodo aleatorio
+SE MUESTRAN LOS ID POR 10 SEGUNDOS.
+RECUADROS SELECCIONABLES, AL HACER CLICK SE DESCUBRE EL ID.
+Cada recuadro es un ID que se muestra y se registra; id idéntico se suma 1 punto 
+y mantiene ambos desvelados.
+AL DESVELAR EL PRIMER ID, EL CRONOMETRO COMIENZA CUENTA REGRESIVA DESDE 1:00.  
+SI EL ID NO ES IDÉNTICO, VUELVEN A CUBRIRSE LOS RECUADROS.
+SI EL CRONOMETRO LLEGA A 0:00, SE VOLTEAN TODOS LOS RECUADROS Y SE MUESTRA EL PUNTAJE FINAL

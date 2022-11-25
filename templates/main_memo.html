@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMORAMA</title>    
+</head>
+<link rel="stylesheet" style="text/css" href="{{url_for('static',filename='main_memo.css')}}">
+<body>
+    <div class="LEFT">left</div>
+    <div class="MID">
+        <div class="tiempo">
+            1:00
+        </div>
+        <div class="espacioJuego">
+            <div class="marco">
+                <form class="carta" method="post">                    
+                    <input hidden name="id" id="id" value="1">
+                    <input hidden name="id" id="id" value="1">
+                    <input class="switch" type="submit" value="SUBMIT"/>                    
+                    {% if id == '1' %}
+                        <div class="id">1</div>
+                    {% else %}
+                        <div hidden class="id">1</div>
+                    {% endif %}
+                </form>                
+            </div>
+            <div class="marco">
+                <form class="carta" method="post">                    
+                    <input hidden name="id" id="id" value="1.1">
+                    <input class="switch" type="submit" value="SUBMIT"/>
+                {% if id == '1.1' %}
+                    <div class="id">1</div>
+                {% else %}
+                    <div hidden class="id">1</div>
+                {% endif %}
+                </form>                
+            </div>
+            <div class="marco">
+                <form class="carta" method="post">                    
+                    <input hidden name="id" id="id" value="2">
+                    <input class="switch" type="submit" value="SUBMIT"/>
+                {% if id == '2' %}
+                    <div class="id">2</div>
+                {% else %}
+                    <div hidden class="id">2</div>
+                {% endif %}
+                </form>                
+            </div>
+            <div class="marco">
+                <form class="carta" method="post">                    
+                    <input hidden name="id" id="id" value="2.1">
+                    <input class="switch" type="submit" value="SUBMIT"/>
+                {% if id == '2.1' %}
+                    <div class="id">2</div>
+                {% else %}
+                    <div hidden class="id">2</div>
+                {% endif %}
+                </form>                
+            </div>
+            <div class="marco">
+                <form class="carta" method="post">                    
+                    <input hidden name="id" id="id" value="3">
+                    <input class="switch" type="submit" value="SUBMIT"/>
+                {% if id == '3' %}
+                    <div class="id">3</div>
+                {% else %}
+                    <div hidden class="id">3</div>
+                {% endif %}
+                </form>                
+            </div>
+            <div class="marco">
+                <form class="carta" method="post">                    
+                    <input hidden name="id" id="id" value="3.1">
+                    <input class="switch" type="submit" value="SUBMIT"/>
+                {% if id == '3.1' %}
+                    <div class="id">3</div>
+                {% else %}
+                    <div hidden class="id">3</div>
+                {% endif %}
+                </form>                
+            </div>
+            <div class="marco">
+                <form class="carta" method="post">                    
+                    <input hidden name="id" id="id" value="4">
+                    <input class="switch" type="submit" value="SUBMIT"/>
+                {% if id == '4' %}
+                    <div class="id">4</div>
+                {% else %}
+                    <div hidden class="id">4</div>
+                {% endif %}
+                </form>                
+            </div>
+            <div class="marco">
+                <form class="carta" method="post">                    
+                    <input hidden name="id" id="id" value="4.1">
+                    <input class="switch" type="submit" value="SUBMIT"/>
+                {% if id == '4.1' %}
+                    <div class="id">4</div>
+                {% else %}
+                    <div hidden class="id">4</div>
+                {% endif %}
+                </form>                
+            </div>
+            <div class="marco">
+                <form class="carta" method="post">                    
+                    <input hidden name="id" id="id" value="5">
+                    <input class="switch" type="submit" value="SUBMIT"/>
+                {% if id == '5' %}
+                    <div class="id">5</div>
+                {% else %}
+                    <div hidden class="id">5</div>
+                {% endif %}
+                </form>                
+            </div>
+            <div class="marco">
+                <form class="carta" method="post">                    
+                    <input hidden name="id" id="id" value="5.1">
+                    <input class="switch" type="submit" value="SUBMIT"/>
+                {% if id == '5.1' %}
+                    <div class="id">5</div>
+                {% else %}
+                    <div hidden class="id">5</div>
+                {% endif %}
+                </form>                
+            </div>
+            <div class="marco">
+                <form class="carta" method="post">                    
+                    <input hidden name="id" id="id" value="6">
+                    <input class="switch" type="submit" value="SUBMIT"/>
+                {% if id == '6' %}
+                    <div class="id">6</div>
+                {% else %}
+                    <div hidden class="id">6</div>
+                {% endif %}
+                </form>                
+            </div>
+            <div class="marco">
+                <form class="carta" method="post">                    
+                    <input hidden name="id" id="id" value="6.1">
+                    <input class="switch" type="submit" value="SUBMIT"/>
+                {% if id == '6.1' %}
+                    <div class="id">6</div>
+                {% else %}
+                    <div hidden class="id">6</div>
+                {% endif %}
+                </form>                
+            </div>
+        </div>
+    </div>
+    <div class="RIGHT">right</div>    
+</body>
+</html>

@@ -1,0 +1,51 @@
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    display: grid;
+    grid-template-columns: .5fr 1fr .5fr;
+    grid-template-rows: .5fr 4.5fr;
+}
+.MID {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .5fr 4.5fr;
+}
+.tiempo {
+    text-align: center;
+    font-size: 60px;
+}
+
+.espacioJuego {
+    padding-top: 0%;
+    padding: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    aspect-ratio: 1;
+}
+
+.espacioJuego .marco {
+    height: 90%;
+    width: 90%;
+    text-align: center;
+    margin: 1%;
+    border: solid;
+    display: grid;
+    grid-template-rows: .5fr 2.5fr;
+}
+
+.espacioJuego .marco .carta{
+    height: 100%;
+    width: 100%;
+}
+.espacioJuego .marco .switch{
+    background-color: aqua;
+    width: 100%;   
+    cursor: pointer;
+}
+.espacioJuego .marco .switch:active{
+    background-color: red;
+}
