@@ -1,6 +1,11 @@
-JUEGO MEMORAMA.
-
-"UTILIZAR SESSION DE FLASK, PARA MOSTRAR/OCULTAR AL SELECCIONAR TARJETA"
+}JUEGO MEMORAMA
+Al elegir 2 opciones, evaluar si es correcto o no.
+#######¿EVALUACION, SE HA CONVERTIDO CORRECTAMENTE LOS VALORES DE ID?
+Si lo es, mantener las selecciones visibles y habilitar de nuevo la 
+rutina.
+Si no lo es, regresar la rutina.
+¿Funciones independientes?
+UTILIZAR SESSION DE FLASK, PARA MOSTRAR/OCULTAR AL SELECCIONAR TARJETA"
 "COMPARACION DE SELECCION, SI ES COINCIDENTE DEVUELVE 1 PUNTO CON ECHO "
 
 *** switch para OCULTAR remover id /MOSTRAR CONTENIDO agregar id 
