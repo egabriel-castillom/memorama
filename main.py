@@ -46,9 +46,9 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         #rf = 'INCORRECTO'    		        	
             else:
                 id = request.form.get('id')
-                session['id'] = id                                
-                message = id + ' id en sesion.'    
-                return render_template('main_memo.html',id = id, message=message)        
+                #session['id'] = id                                
+                #message = id + ' id en sesion.'    
+                return type(id)        
                 #session.clear()
                 #click.echo('SESION REINICIADA.')
         return render_template('main_memo.html')
