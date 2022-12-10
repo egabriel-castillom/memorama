@@ -19,7 +19,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 id2 = request.form.get('id')
                 if id1 == id2:
                     session.clear()
-                    message = ' Se ha quitado la selección'
+                    message = ' Se ha quitado la selección perriyo'
                     return render_template('main_memo.html',message=message)                                     
                 else:
                     if session.get('iD'):
