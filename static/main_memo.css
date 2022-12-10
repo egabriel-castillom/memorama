@@ -11,13 +11,16 @@ body {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: .5fr .5fr 4.0fr;
+    grid-template-rows: 1.0fr .5fr .5fr 4.0fr;
 }
 
 .MID .message {
     text-align: center;
 }
 
+.MID .rf {
+    text-align: center;
+}
 .tiempo {
     text-align: center;
     font-size: 60px;
