@@ -19,7 +19,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 id2 = request.form.get('id')
                 if id1 == id2:
                     session.clear()
-                    message = ' Se ha quitado la selección perriyo'
+                    message = ' Se ha quitado la selección'
                     return render_template('main_memo.html',message=message)                                     
                 else:
                     if session.get('iD'):
@@ -32,16 +32,15 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     else:
                         session['iD'] = id2                    
                         iD = session.get('iD')
-                        message = id1 + ' , ' + iD + ' ids en sesion.'
-                        return render_template('main_memo.html',id = id1,iD = iD, message=message)                
-                        #a = float(id1)
-                        #b = float(iD)
-                        #results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1] 
-                        #RF = a + b
-                        #rf = str(RF)
+                        message = id1 + ' , ' + iD + ' ids en sesion.'             
+                        a = float(id1)
+                        b = float(iD)
+                        RF = a + b
+                        rf = str(RF)
+                        return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rf)
+                        #results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
                         #if rf in results:
-                        #rf = rf  
-                        #return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rf)
+                        #rf = rf
                         #else:
                         #rf = 'INCORRECTO'    		        	
             else:
