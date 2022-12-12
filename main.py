@@ -37,12 +37,13 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         b = float(iD)
                         RF = a + b
                         rf = str(RF)
-                        return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rf)
-                        #results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
-                        #if rf in results:
-                        #rf = rf
-                        #else:
-                        #rf = 'INCORRECTO'    		        	
+                        results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
+                        if RF in results:
+                            rfo = 'CORRECTO ' + rf
+                        else:
+                            rfo = 'INCORRECTO ' + rf
+                        return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rfo)
+                            		        	
             else:
                 id = str(request.form.get('id'))
                 session['id'] = id                                
