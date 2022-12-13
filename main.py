@@ -42,11 +42,11 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         if RF in results:
                             rfo = 'CORRECTO ' + rf
                             p += 1
-                            return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rfo, p=str(p))
+                            P = str(p)
+                            return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rfo, p=P)
                         else:
                             rfo = 'INCORRECTO ' + rf
-                            return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rfo)
-                            		        	
+                            return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rfo)                       		        	
             else:
                 id = str(request.form.get('id'))
                 session['id'] = id                                
