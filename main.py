@@ -11,6 +11,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     app.config.from_mapping( #Configuración de nuestra app, obtiene las variables de entorno necesarias para ejecutar conexion con db.  
         SECRET_KEY=os.environ.get('SECRET_KEY'),        
     )
+    p=0
     @app.route('/',methods=('POST','GET'))
     def memo():
         if request.method == 'POST':                                                             
@@ -40,9 +41,11 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
                         if RF in results:
                             rfo = 'CORRECTO ' + rf
+                            p += 1
+                            return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rfo, p=p)
                         else:
                             rfo = 'INCORRECTO ' + rf
-                        return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rfo)
+                            return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rfo)
                             		        	
             else:
                 id = str(request.form.get('id'))
