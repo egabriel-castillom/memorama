@@ -4,14 +4,13 @@ import click
 import os
 
 load_dotenv()
-
+p=0
 def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACIÓN dentro del bash. 
     app = Flask(__name__) #Asigna modulo inicial para nuestra aplicación.
    
     app.config.from_mapping( #Configuración de nuestra app, obtiene las variables de entorno necesarias para ejecutar conexion con db.  
         SECRET_KEY=os.environ.get('SECRET_KEY'),        
     )
-    p=0
     @app.route('/',methods=('POST','GET'))
     def memo():
         if request.method == 'POST':                                                             
