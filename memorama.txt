@@ -1,4 +1,6 @@
 }JUEGO MEMORAMA
+Adaptar funcion evaluadora.
+Concretar ejecucion modular.
 IF CORRECT, SAVE CURRENT SESSION IDs,
 mantener las selecciones visibles
 and restart routine y habilitar de nuevo la 
