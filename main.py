@@ -41,7 +41,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         if RF in results:
                             rfo = 'CORRECTO ' + rf
                             P = str(p)
-                            return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rfo, p=P), p
+                            return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rfo, p=P)
                         else:
                             rfo = 'INCORRECTO ' + rf
                             return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rfo)                       		        	
