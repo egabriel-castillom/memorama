@@ -1,8 +1,10 @@
 }JUEGO MEMORAMA
-ERROR if in Results????
-####### mantener las selecciones visibles y habilitar de nuevo la 
+IF CORRECT, SAVE CURRENT SESSION IDs,
+mantener las selecciones visibles
+and restart routine y habilitar de nuevo la 
 rutina de selección.
 Si no lo es, regresar la rutina.
+
 ¿Funciones independientes?
 UTILIZAR SESSION DE FLASK, PARA MOSTRAR/OCULTAR AL SELECCIONAR TARJETA"
 "COMPARACION DE SELECCION, SI ES COINCIDENTE DEVUELVE 1 PUNTO CON ECHO "
