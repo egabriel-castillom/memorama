@@ -22,15 +22,15 @@ def assignid():
 def assigniD():
     if session.get('iD'):
                 iD1 = session.get('iD')
-                iD2 = id2
+                iD2 = session.get('id')
                 if iD1 == iD2:
                     session.clear()
                     message = ' Se ha quitado la selección'
                     return render_template('main_memo.html',message=message)
                 else:
-                    session['iD'] = id2                    
-                    iD = session.get('iD')
-                    message = id1 + ' , ' + iD + ' ids en sesion.'
+                    session['iD'] = request.form.get('id')                   
+                    message = iD1 + ' , ' + iD2 + ' ids en sesion.'
+                    return render_template('main_memo.html',message=message)
 
 def evaluate():
     a = float(id1)
