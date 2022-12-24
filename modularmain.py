@@ -40,7 +40,7 @@ def evaluate():
     results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
     if RF in results:
         rfo = 'CORRECTO ' + rf
-        P = str(p)
+        P = 'perr' + str(p)
         return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rfo, p=P)
     else:
         rfo = 'INCORRECTO ' + rf
