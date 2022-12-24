@@ -56,9 +56,9 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     def memo():
         if request.method == 'POST':                                                             
             if session.get('id'):
-                assigniD()
+                return assigniD()
             else:
-                assignid()
+                return assignid()
         return render_template('main_memo.html')
     return app
 
