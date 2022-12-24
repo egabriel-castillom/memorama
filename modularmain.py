@@ -55,10 +55,10 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     @app.route('/',methods=('POST','GET'))
     def memo():
         if request.method == 'POST':                                                             
-            try:
-                assignid()
-            except:
+            if session.get('id'):
                 assigniD()
+            else:
+                assignid()
         return render_template('main_memo.html')
     return app
 
