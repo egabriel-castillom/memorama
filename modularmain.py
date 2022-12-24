@@ -12,12 +12,12 @@ def assignid():
                 if id1 == id2:
                     session.clear()
                     message = ' Se ha quitado la selección'
-                    return render_template('main_memo.html',message=message)
+                    return message
     else:
             id = str(request.form.get('id'))
             session['id'] = id                                
             message = id + ' id en sesion.'    
-            return render_template('main_memo.html',id=id,message=message)      
+            return message    
 
 def assigniD():
     if session.get('iD'):
@@ -25,12 +25,12 @@ def assigniD():
                 iD2 = session.get('id')
                 if iD1 == iD2:
                     session.clear()
-                    message = ' Se ha quitado la selección'
-                    return render_template('main_memo.html',message=message)
+                    message = 'Se ha quitado la selección'
+                    return message
                 else:
                     session['iD'] = request.form.get('id')                   
                     message = iD1 + ' , ' + iD2 + ' ids en sesion.'
-                    return render_template('main_memo.html',message=message)
+                    return message
 
 def evaluate():
     a = float(id1)
@@ -56,9 +56,11 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     def memo():
         if request.method == 'POST':                                                             
             if session.get('id'):
-                return assigniD()
+                message = assigniD()
+                return render_template('main_memo.html',message=message)
             else:
-                return assignid()
+                message = assignid()
+                return render_template('main_memo.html',message=message)
         return render_template('main_memo.html')
     return app
 
