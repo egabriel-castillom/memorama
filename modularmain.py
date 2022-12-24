@@ -27,10 +27,10 @@ def assigniD():
                     session.clear()
                     message = 'Se ha quitado la selección'
                     return message
-                else:
-                    session['iD'] = request.form.get('id')                   
-                    message = iD1 + ' , ' + iD2 + ' ids en sesion.'
-                    return message
+    else:
+                session['iD'] = request.form.get('id')                   
+                message = iD1 + ' , ' + iD2 + ' ids en sesion.'
+                return message
 
 def evaluate():
     a = float(id1)
