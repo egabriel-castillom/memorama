@@ -8,7 +8,7 @@ p=0
 
 def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACIÓN dentro del bash. 
     
-     def assignid():
+    def assignid():
         if session.get('id'):
             id1 = session.get('id')
             id2 = request.form.get('id')
