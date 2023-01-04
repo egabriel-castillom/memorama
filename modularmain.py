@@ -66,5 +66,5 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
             #return render_template('main_memo.html', message=message)
         return render_template('main_memo.html')
     return app
-
+https://memorama-c2ngeptezq-vp.a.run.app
 app = create_app()
