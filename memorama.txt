@@ -1,4 +1,5 @@
 }JUEGO MEMORAMA
+**COMO VER LOGS DE EJECUCIÓN??**
 Adaptar funcion evaluadora.
 Concretar ejecucion modular.
 IF CORRECT, SAVE CURRENT SESSION IDs,
