@@ -61,8 +61,12 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
             #    message = assigniD()
             #    return render_template('main_memo.html',message=message)
             #else:
-            message,id = assignid()
-            return render_template('main_memo.html',message=message,id=id)
+            try:
+                message,id = assignid()
+                return render_template('main_memo.html',message=message,id=id)
+            except:
+                message= assignid()
+                return render_template('main_memo.html',message=message)
             #return render_template('main_memo.html', message=message)
         return render_template('main_memo.html')
     return app
