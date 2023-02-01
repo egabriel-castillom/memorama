@@ -17,7 +17,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 message = ' Se ha quitado la selección'
                 return message
         else:
-            id = request.form.get('id')
+            id = str(request.form.get('id'))
             session['id'] = id                                
             message = id + ' id en sesion.'    
             return message, id
