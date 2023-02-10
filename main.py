@@ -1,4 +1,4 @@
-2from flask import Flask, render_template, request, session, flash
+from flask import Flask, render_template, request, session, flash
 from dotenv import load_dotenv
 import click
 import os
