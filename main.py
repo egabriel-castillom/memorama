@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, flash
+2from flask import Flask, render_template, request, session, flash
 from dotenv import load_dotenv
 import click
 import os
@@ -31,20 +31,19 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                             return render_template('main_memo.html',message=message)
                     else:
                         session['iD'] = id2                    
-                        iD = session.get('iD')
-                        message = id1 + ' , ' + iD + ' ids en sesion.'             
+                        message = id1 + ' , ' + id2 + ' ids en sesion.'             
                         a = float(id1)
-                        b = float(iD)
+                        b = float(id2)
                         RF = a + b
                         rf = str(RF)
                         results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
                         if RF in results:
                             rfo = 'CORRECTO ' + rf
                             P = str(p)
-                            return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rfo, p=P)
+                            return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo, p=P)
                         else:
                             rfo = 'INCORRECTO ' + rf
-                            return render_template('main_memo.html',id=id1,iD=iD,message=message,rf=rfo)                       		        	
+                            return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo)                       		        	
             else:
                 id = str(request.form.get('id'))
                 session['id'] = id                                
