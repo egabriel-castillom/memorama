@@ -39,19 +39,13 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                             results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
                             if RF in results:
                                 rfo = 'CORRECTO ' + rf
-                                P = str(P+1)
+                                P1 = str(P+1)
                                 return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo, p=P)
                             else:
                                 rfo = 'INCORRECTO ' + rf
                                 return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo)                       		        	
                 else:
                     id1 = str(request.form.get('id'))
-                    if id1 == a:
-                        session['id'] = 0
-                        P1 = int(P)
-                        P = str(P1-1)
-                        message = 'Id en sesion.  ' + id2
-                        return render_template('main_memo.html',iD=id2,message=message,p=P)
                     session['id1'] = id1                                
                     message = id1 + ' id en sesion.'    
                     id = session.get('id')
