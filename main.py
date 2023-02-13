@@ -47,15 +47,17 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 else:
                     id1 = str(request.form.get('id'))
                     id = session.get('id')
-                    if id1 == id:
-                        return render_template('main_memo.html',id=id1,iD=id2,p=P)
                     iD = session.get('iD')
+                    if id1 == id:
+                        message = 'ID ' + id1 + ' actualmente en sesion.'
+                        return render_template('main_memo.html',id=id1,iD=id2,p=P, message=message)
                     elif id1 == iD:
-                        return render_template('main_memo.html',id=id1,iD=id2,p=P)
+                        message = 'ID ' + id1 + ' actualmente en sesion.'
+                        return render_template('main_memo.html',id=id1,iD=id2,p=P, message=message)
                     else:
                         session['id1'] = id1                                
                         message = id1 + ' id en sesion.'
-                        return render_template('main_memo.html', id=id1,iD=iD,id1=id1,message=message, p=P)        
+                        return render_template('main_memo.html', id=id1,iD=id2,id1=id1,message=message, p=P)        
                         #session.clear()
                         #click.echo('SESION REINICIADA.')
             else:    
