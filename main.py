@@ -46,12 +46,12 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                                 return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo)                       		        	
                 else:
                     id1 = str(request.form.get('id'))
-                    if id1 == session.get('id'):
-                        rfo = 'CORRECTO ' + rf
-                        return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo, p=P)
-                    elif id1 == session.get('iD'):
-                        rfo = 'CORRECTO ' + rf
-                        return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo, p=P)
+                    id = session.get('id')
+                    if id1 == id:
+                        return render_template('main_memo.html',id=id1,iD=id2,p=P)
+                    iD = session.get('iD')
+                    elif id1 == iD:
+                        return render_template('main_memo.html',id=id1,iD=id2,p=P)
                     else:
                         session['id1'] = id1                                
                         message = id1 + ' id en sesion.'
