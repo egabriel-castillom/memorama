@@ -12,6 +12,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     )
     @app.route('/',methods=('POST','GET'))
     def memo():
+        session.clear()
         if request.method == 'POST':                                                             
             if session.get('id') and session.get('iD'):
                 if session.get('id1'):
@@ -45,7 +46,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                                 rfo = 'INCORRECTO ' + rf
                                 return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo)                       		        	
                 else:
-                    id1 = str(request.form.get('id'))
+                    id1 = request.form.get('id')
                     id = session.get('id')
                     iD = session.get('iD')
                     if id1 == id:
