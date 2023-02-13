@@ -12,6 +12,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     )
     @app.route('/',methods=('POST','GET'))
     def memo():
+        session.clear()
         if request.method == 'POST':                                                             
             if session.get('id') and session.get('iD'):
                 if session.get('id1'):
