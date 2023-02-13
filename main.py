@@ -11,8 +11,8 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
         SECRET_KEY=os.environ.get('SECRET_KEY'),        
     )
     @app.route('/',methods=('POST','GET'))
+    session.clear()
     def memo():
-        session.clear()
         if request.method == 'POST':                                                             
             if session.get('id') and session.get('iD'):
                 if session.get('id1'):
