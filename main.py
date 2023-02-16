@@ -18,7 +18,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 ad = float(session.get('id')) 
                 aD = float(session.get('iD')) 
                 message = 'Si jala'
-                return render_template('main_memo.html',id=id1,iD=id2,message=message)
+                return render_template('main_memo.html',id=ad,iD=aD,message=message)
             except:    
                 if session.get('id'):
                     id1 = session.get('id')
