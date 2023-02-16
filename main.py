@@ -14,10 +14,12 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     def memo():
         if request.method == 'POST':                                                             
             results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
-            if float(session.get('id')) + float(session.get('iD')) in results:
+            try:
+                ad = float(session.get('id')) 
+                aD = float(session.get('iD')) 
                 message = 'Si jala'
                 return render_template('main_memo.html',id=id1,iD=id2,message=message)
-            else:    
+            except:    
                 if session.get('id'):
                     id1 = session.get('id')
                     id2 = request.form.get('id')
