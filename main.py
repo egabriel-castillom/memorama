@@ -12,7 +12,6 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     )
     @app.route('/',methods=('POST','GET'))
     def memo():
-        session.clear() #Que sucede en la segunda ronda mierdaaaa
         if request.method == 'POST':                                                             
             if session.get('id') and session.get('iD'):
                 if session.get('id1'):
@@ -51,14 +50,14 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     iD = session.get('iD')
                     if id1 == id:
                         message = 'ID ' + id1 + ' actualmente en sesion.'
-                        return render_template('main_memo.html',id=id1,iD=id2,p=P, message=message)
+                        return render_template('main_memo.html',id=id1,iD=iD,p=P, message=message)
                     elif id1 == iD:
                         message = 'ID ' + id1 + ' actualmente en sesion.'
-                        return render_template('main_memo.html',id=id1,iD=id2,p=P, message=message)
+                        return render_template('main_memo.html',id=id,iD=id1,p=P, message=message)
                     else:
                         session['id1'] = id1                                
                         message = id1 + ' id en sesion.'
-                        return render_template('main_memo.html', id=id1,iD=id2,id1=id1,message=message, p=P)        
+                        return render_template('main_memo.html', id=id1,iD=iD,id1=id1,message=message, p=P)        
                         #session.clear()
                         #click.echo('SESION REINICIADA.')
             else:    
@@ -70,28 +69,20 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         message = ' Se ha quitado la selección'
                         return render_template('main_memo.html',message=message)                                     
                     else:
-                        if session.get('iD'):
-                            iD1 = session.get('iD')
-                            iD2 = id2
-                            if iD1 == iD2:
-                                session.clear()
-                                message = ' Se ha quitado la selección'
-                                return render_template('main_memo.html',message=message)
+                        session['iD'] = id2                    
+                        message = id1 + ' , ' + id2 + ' ids en sesion.'             
+                        a = float(id1)
+                        b = float(id2)
+                        RF = a + b
+                        rf = str(RF)
+                        results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
+                        if RF in results:
+                            rfo = 'CORRECTO ' + rf
+                            P = str(p+1)
+                            return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo, p=P)
                         else:
-                            session['iD'] = id2                    
-                            message = id1 + ' , ' + id2 + ' ids en sesion.'             
-                            a = float(id1)
-                            b = float(id2)
-                            RF = a + b
-                            rf = str(RF)
-                            results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
-                            if RF in results:
-                                rfo = 'CORRECTO ' + rf
-                                P = str(p+1)
-                                return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo, p=P)
-                            else:
-                                rfo = 'INCORRECTO ' + rf
-                                return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo)                       		        	
+                            rfo = 'INCORRECTO ' + rf
+                            return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo)                       		        	
                 else:
                     id = str(request.form.get('id'))
                     session['id'] = id                                
