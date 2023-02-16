@@ -14,36 +14,38 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     def memo():
         if request.method == 'POST':                                                             
             if session.get('id') and session.get('iD'):
-                if session.get('id1'):
-                    id1 = session.get('id1')
-                    id2 = request.form.get('id')
-                    if id1 == id2:
-                        session.clear()
-                        message = ' Se ha quitado la selección'
-                        return render_template('main_memo.html',message=message)                                     
-                    else:
-                        if session.get('iD1'):
-                            iD1 = session.get('iD1')
-                            iD2 = id2
-                            if iD1 == iD2:
-                                session.clear()
-                                message = ' Se ha quitado la selección'
-                                return render_template('main_memo.html',message=message)
-                        else:
-                            session['iD1'] = id2                    
-                            message = id1 + ' , ' + id2 + ' ids en sesion.'             
-                            a = float(id1)
-                            b = float(id2)
-                            RF = a + b
-                            rf = str(RF)
-                            results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
-                            if RF in results:
-                                rfo = 'CORRECTO ' + rf
-                                P1 = str(P+1)
-                                return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo, p=P)
-                            else:
-                                rfo = 'INCORRECTO ' + rf
-                                return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo)                       		        	
+#                if session.get('id1'):
+#                    id1 = session.get('id1')
+#                    id2 = request.form.get('id')
+#                    if id1 == id2:
+#                        session.clear()
+#                        message = ' Se ha quitado la selección'
+#                        return render_template('main_memo.html',message=message)                                     
+#                    else:
+#                        if session.get('iD1'):
+#                            iD1 = session.get('iD1')
+#                            iD2 = id2
+#                            if iD1 == iD2:
+#                                session.clear()
+#                                message = ' Se ha quitado la selección'
+#                                return render_template('main_memo.html',message=message)
+#                        else:
+#                            session['iD1'] = id2                    
+#                            message = id1 + ' , ' + id2 + ' ids en sesion.'             
+#                            a = float(id1)
+#                            b = float(id2)
+#                            RF = a + b
+#                            rf = str(RF)
+#                            results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
+#                            if RF in results:
+#                                rfo = 'CORRECTO ' + rf
+#                                P1 = str(P+1)
+#                                return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo, p=P)
+#                            else:
+#                                rfo = 'INCORRECTO ' + rf
+#                                return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo)                       		       
+                    message = 'Si jala'
+                    return render_template('main_memo.html',id=id1,iD=id2,message=message)
                 else:
                     id1 = request.form.get('id')
                     id = session.get('id')
