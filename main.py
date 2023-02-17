@@ -14,7 +14,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     def memo():
         if request.method == 'POST':                                                             
             results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
-            if session.get('P') == '1':
+            if session.get('P'):
                 message = 'Si jala'
                 return render_template('main_memo.html',message=message)
             else:    
