@@ -57,6 +57,8 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     return render_template('main_memo.html',id=id,message=message)        
                     #session.clear()
                     #click.echo('SESION REINICIADA.')
+        elif request.method == 'GET':
+            session.clear()
         return render_template('main_memo.html')
     return app
 
