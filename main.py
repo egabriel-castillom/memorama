@@ -13,7 +13,6 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     @app.route('/',methods=('POST','GET'))
     def memo():
         if request.method == 'POST':                                                             
-            results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
             if session.get('P'):
                 message = 'Si jala'
                 return render_template('main_memo.html',message=message)
@@ -32,9 +31,11 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         b = float(id2)
                         RF = a + b
                         rf = str(RF)
+                        results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
                         if RF in results:
                             rfo = 'CORRECTO ' + rf
-                            session['P'] = str(p+1)
+                            P = str(p+1)
+                            session['P'] = P
                             return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo, p=P)
                         else:
                             rfo = 'INCORRECTO ' + rf
