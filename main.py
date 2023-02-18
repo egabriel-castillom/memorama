@@ -14,8 +14,18 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     def memo():
         if request.method == 'POST':                                                             
             if session.get('P'):
-                message = 'Si jala'
-                return render_template('main_memo.html',message=message)
+                r2id = request.form.get('id')
+                id = session.get('id')
+                iD = session.get('iD')
+                if r2id == id:
+                    message = 'Como vaser ' + id
+                    return render_template('main_memo.html',id=id1,iD=id2,message=message)
+                elif r2id == iD:
+                    message = 'Ayno ' + iD
+                    return render_template('main_memo.html',id=id1,iD=id2,message=message)
+                else:
+                    message = 'Si jala we'
+                    return render_template('main_memo.html',id=id1,iD=id2,id1=r2id,message=message)
             else:    
                 if session.get('id'):
                     id1 = session.get('id')
