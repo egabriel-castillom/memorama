@@ -5,7 +5,9 @@ Concretar ejecucion modular.
 *IF CORRECT, SAVE CURRENT SESSION IDs,
 mantener las selecciones visibles
 and restart routine y habilitar de nuevo la 
-rutina de selección.*
+rutina de selección.
+SI JALA WE -- PROCEDER Y HABILITAR SIGUIENTE VARIABLE PARA
+EVALUAR LA SEGUNDA RONDA*
 
 *¿Funciones independientes?*
 UTILIZAR SESSION DE FLASK, PARA MOSTRAR/OCULTAR AL SELECCIONAR TARJETA"
