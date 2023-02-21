@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, session, flash
 from dotenv import load_dotenv
 import click
 import os
+import time
 
 load_dotenv()
 p=0
@@ -26,6 +27,10 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 else:
                     message = 'Si jala we'
                     return render_template('main_memo.html',id=id1,iD=id2,id1=r2id,message=message)
+            elif session.get('F'):
+                time.sleep(5)
+                message = 'TRY AGAIN FOO!'
+                return render_template('main_memo.html', message=message)    
             else:    
                 if session.get('id'):
                     id1 = session.get('id')
@@ -48,7 +53,8 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                             session['P'] = P
                             return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo, p=P)
                         else:
-                            rfo = 'INCORRECTO ' + rf
+                            rfo = 'INCORRECTO ' + rf + ' Vuelve a intentarlo.'
+                            session['F'] = 1
                             return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo)                       		        	
                 else:
                     id = str(request.form.get('id'))
