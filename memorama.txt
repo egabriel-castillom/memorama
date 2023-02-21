@@ -2,14 +2,12 @@
 **COMO VER LOGS DE EJECUCIÓN??**
 Adaptar funcion evaluadora.
 Concretar ejecucion modular.
-IF CORRECT, SAVE CURRENT SESSION IDs,
+*IF CORRECT, SAVE CURRENT SESSION IDs,
 mantener las selecciones visibles
 and restart routine y habilitar de nuevo la 
-rutina de selección.
-Si no lo es, regresar la rutina despues de 5 segundos
-sin valores en la plantilla.
+rutina de selección.*
 
-¿Funciones independientes?
+*¿Funciones independientes?*
 UTILIZAR SESSION DE FLASK, PARA MOSTRAR/OCULTAR AL SELECCIONAR TARJETA"
 "COMPARACION DE SELECCION, SI ES COINCIDENTE DEVUELVE 1 PUNTO CON ECHO "
 
