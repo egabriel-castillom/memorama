@@ -20,13 +20,13 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 iD = session.get('iD')
                 if r2id == id:
                     message = 'Como vaser ' + id
-                    return render_template('main_memo.html',id=id1,iD=id2,message=message)
+                    return render_template('main_memo.html',id=id,iD=iD,message=message)
                 elif r2id == iD:
                     message = 'Ayno ' + iD
-                    return render_template('main_memo.html',id=id1,iD=id2,message=message)
+                    return render_template('main_memo.html',id=id,iD=iD,message=message)
                 else:
                     message = 'Si jala we'
-                    return render_template('main_memo.html',id=id1,iD=id2,id1=r2id,message=message)
+                    return render_template('main_memo.html',id=id,iD=iD,id1=r2id,message=message)
             elif session.get('F'):
                 session.pop('id')
                 session.pop('iD')
