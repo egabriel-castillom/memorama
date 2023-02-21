@@ -28,9 +28,10 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     message = 'Si jala we'
                     return render_template('main_memo.html',id=id1,iD=id2,id1=r2id,message=message)
             elif session.get('F'):
-                time.sleep(5)
-                message = 'TRY AGAIN FOO!'
-                return render_template('main_memo.html', message=message)    
+                session.pop('id')
+                session.pop('iD')
+                session.pop('F')
+                return render_template('main_memo.html')
             else:    
                 if session.get('id'):
                     id1 = session.get('id')
@@ -55,7 +56,8 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         else:
                             rfo = 'INCORRECTO ' + rf + ' Vuelve a intentarlo.'
                             session['F'] = 1
-                            return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo)                       		        	
+                            F = session.get('F')
+                            return render_template('main_memo.html',id=id1,iD=id2,rf=rfo,F = F)                       		        	
                 else:
                     id = str(request.form.get('id'))
                     session['id'] = id                                
