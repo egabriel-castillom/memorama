@@ -15,22 +15,24 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     def memo():
         if request.method == 'POST':                                                             
             if session.get('P'):
-                r2id = request.form.get('id')
                 id = session.get('id')
                 iD = session.get('iD')
                 if session.get('r2id'):
-                    if r2id == id:
+                    r2iD = request.form.get('id')
+                    if r2iD == id:
                         message = 'Already selected ' + id
                         return render_template('main_memo.html',id=id,iD=iD,message=message)
-                    elif r2id == iD:
+                    elif r2iD == iD:
                         message = 'Already selected ' + iD
                         return render_template('main_memo.html',id=id,iD=iD,message=message)
                     else:
-                        session['r2iD'] = r2id
-                        message = r2id + ' iD en sesión2'
+                        session['r2iD'] = r2iD
+                        r2id = session.get('r2id')
+                        message = r2iD + ' iD en sesión2'
                         P = session.get('P')
-                        return render_template('main_memo.html',id=id,iD=iD,id1=r2id,message=message, p=P)
+                        return render_template('main_memo.html',id=id,iD=iD,id1=r2id,iD1=r2iD,message=message, p=P)
                 else:
+                    r2id = request.form.get('id')
                     if r2id == id:
                         message = 'Already selected ' + id
                         return render_template('main_memo.html',id=id,iD=iD,message=message)
