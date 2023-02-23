@@ -30,22 +30,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         r2id = session.get('r2id')
                         message = r2iD + ' iD en sesión2'
                         P = session.get('P')
-                        p = int(P)
-                        a = float(r2id)
-                        b = float(r2iD)
-                        RF = a + b
-                        rf = str(RF)
-                        results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
-                        if RF in results:
-                            rfo = 'CORRECTO ' + rf
-                            P = str(p+1)
-                            session['P'] = P
-                            return render_template('main_memo.html',id=id,iD=iD,id1=r2id,iD1=r2iD,message=message, p=P, rf=rfo)
-                        else:
-                            rfo = 'INCORRECTO ' + rf + ' Vuelve a intentarlo.'
-                            session['F'] = 1
-                            F = session.get('F')
-                            return render_template('main_memo.html',id=id1,iD=id2,rf=rfo,F = F)                  
+                        return render_template('main_memo.html',id=id,iD=iD,id1=r2id,iD1=r2iD,message=message, p=P)
                 else:
                     r2id = request.form.get('id')
                     if r2id == id:
