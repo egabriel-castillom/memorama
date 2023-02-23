@@ -1,13 +1,7 @@
 }JUEGO MEMORAMA
 **COMO VER LOGS DE EJECUCIÓN??**
-Adaptar funcion evaluadora.
-Concretar ejecucion modular.
-*IF CORRECT, SAVE CURRENT SESSION IDs,
-mantener las selecciones visibles
-and restart routine y habilitar de nuevo la 
-rutina de selección.
-SI JALA WE -- PROCEDER Y HABILITAR SIGUIENTE VARIABLE PARA
-EVALUAR LA SEGUNDA RONDA*
+r2 .. 
+  - Codificar evaluacion, sumando los puntos actuales.
 
 *¿Funciones independientes?*
 UTILIZAR SESSION DE FLASK, PARA MOSTRAR/OCULTAR AL SELECCIONAR TARJETA"
@@ -20,7 +14,8 @@ Se requieren imagenes de un tema especifico. *web scraping script*
 Un inicio de sesion, que lleve la cuenta del puntaje *record mas alto*.
 El record es... mayor numero de puntos en 1 minuto.
 Plantilla de 4x3 = 6 pares. con acomodo aleatorio
-SE MUESTRAN LOS ID POR 10 SEGUNDOS.
+SE MUESTRAN LOS ID POR 10 SEGUNDOS, SE HACE UN REACOMODO ALEATORIO Y
+SE MUESTRAN POR 5 SEGUNDOS.
 RECUADROS SELECCIONABLES, AL HACER CLICK SE DESCUBRE EL ID.
 Cada recuadro es un ID que se muestra y se registra; id idéntico se suma 1 punto 
 y mantiene ambos desvelados.
