@@ -18,15 +18,30 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 r2id = request.form.get('id')
                 id = session.get('id')
                 iD = session.get('iD')
-                if r2id == id:
-                    message = 'Como vaser ' + id
-                    return render_template('main_memo.html',id=id,iD=iD,message=message)
-                elif r2id == iD:
-                    message = 'Ayno ' + iD
-                    return render_template('main_memo.html',id=id,iD=iD,message=message)
+                if session.get('r2id'):
+                    if r2id == id:
+                        message = 'Already selected ' + id
+                        return render_template('main_memo.html',id=id,iD=iD,message=message)
+                    elif r2id == iD:
+                        message = 'Already selected ' + iD
+                        return render_template('main_memo.html',id=id,iD=iD,message=message)
+                    else:
+                        session['r2iD'] = r2id
+                        message = r2id + ' iD en sesión2'
+                        P = session.get('P')
+                        return render_template('main_memo.html',id=id,iD=iD,id1=r2id,message=message, p=P)
                 else:
-                    message = 'Si jala we'
-                    return render_template('main_memo.html',id=id,iD=iD,id1=r2id,message=message)
+                    if r2id == id:
+                        message = 'Already selected ' + id
+                        return render_template('main_memo.html',id=id,iD=iD,message=message)
+                    elif r2id == iD:
+                        message = 'Already selected ' + iD
+                        return render_template('main_memo.html',id=id,iD=iD,message=message)
+                    else:
+                        session['r2id'] = r2id
+                        message = r2id + ' id en sesión2'
+                        P = session.get('P')
+                        return render_template('main_memo.html',id=id,iD=iD,id1=r2id,message=message, p=P)
             elif session.get('F'):
                 session.pop('id')
                 session.pop('iD')
