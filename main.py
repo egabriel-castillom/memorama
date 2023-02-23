@@ -6,7 +6,6 @@ import time
 
 load_dotenv()
 p=0
-results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
 def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACIÓN dentro del bash. 
     app = Flask(__name__) #Asigna modulo inicial para nuestra aplicación.
     app.config.from_mapping( #Configuración de nuestra app, obtiene las variables de entorno necesarias para ejecutar conexion con db.  
@@ -36,6 +35,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         b = float(r2iD)
                         RF = a + b
                         rf = str(RF)
+                        results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
                         if RF in results:
                             rfo = 'CORRECTO ' + rf
                             P = str(p+1)
@@ -79,6 +79,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         b = float(id2)
                         RF = a + b
                         rf = str(RF)
+                        results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
                         if RF in results:
                             rfo = 'CORRECTO ' + rf
                             P = str(p+1)
