@@ -45,7 +45,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                             r2rfo = 'INCORRECTO ' + r2rf + ' Vuelve a intentarlo.'
                             session['F'] = 1
                             F = session.get('F')
-                            return render_template('main_memo.html',id=id1,iD=id2,rf=r2rfo,F = F)                       		        	                            
+                            return render_template('main_memo.html',id=id,iD=iD,rf=r2rfo,F=F)                       		        	                            
                 else:
                     r2id = request.form.get('id')
                     if r2id == id:
@@ -87,7 +87,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                             rfo = 'INCORRECTO ' + rf + ' Vuelve a intentarlo.'
                             session['F'] = 1
                             F = session.get('F')
-                            return render_template('main_memo.html',id=id1,iD=id2,rf=rfo,F = F)                       		        	
+                            return render_template('main_memo.html',id=id1,iD=id2,rf=rfo,F=F)                       		        	
                 else:
                     id = str(request.form.get('id'))
                     session['id'] = id                                
