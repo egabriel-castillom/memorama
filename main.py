@@ -40,9 +40,9 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                             r2p = int(session.get('P'))
                             r2P = str(r2p+1)
                             session['P'] = r2P
-                            return render_template('main_memo.html',id=id,iD=iD,id1=r2id,iD1=r2iD,message=message, p=P, rf = r2rfo)
+                            return render_template('main_memo.html',id=id,iD=iD,id1=r2id,iD1=r2iD,message=message, p=r2P, rf = r2rfo)
                         else:
-                            r2rfo = 'INCORRECTO ' + rf + ' Vuelve a intentarlo.'
+                            r2rfo = 'INCORRECTO ' + r2rf + ' Vuelve a intentarlo.'
                             session['F'] = 1
                             F = session.get('F')
                             return render_template('main_memo.html',id=id1,iD=id2,rf=r2rfo,F = F)                       		        	                            
