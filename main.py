@@ -15,8 +15,16 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     def memo():
         if request.method == 'POST':                                                             
             if session.get('F'):
-                session.clear()
-                return render_template('main_memo.html')
+                if session.get('P'):
+                    P = session.get('P')
+                    message = 'La ronda 1 es correcta, vuelve a iniciar ronda 2'
+                    session.pop('r2id')
+                    session.pop('r2iD')
+                    session.pop('F')
+                    return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo, p=P)
+                else:
+                    session.clear()
+                    return render_template('main_memo.html')
             elif session.get('P'):
                 id = session.get('id')
                 iD = session.get('iD')
@@ -62,7 +70,6 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         message = r2id + ' id en sesión2'
                         P = session.get('P')
                         return render_template('main_memo.html',id=id,iD=iD,id1=r2id,message=message, p=P)
-            
             else:    
                 if session.get('id'):
                     id1 = session.get('id')
