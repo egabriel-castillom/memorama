@@ -14,7 +14,10 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     @app.route('/',methods=('POST','GET'))
     def memo():
         if request.method == 'POST':                                                             
-            if session.get('P'):
+            if session.get('F'):
+                session.clear()
+                return render_template('main_memo.html')
+            elif session.get('P'):
                 id = session.get('id')
                 iD = session.get('iD')
                 if session.get('r2id'):
@@ -59,9 +62,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         message = r2id + ' id en sesión2'
                         P = session.get('P')
                         return render_template('main_memo.html',id=id,iD=iD,id1=r2id,message=message, p=P)
-            elif session.get('F'):
-                session.clear()
-                return render_template('main_memo.html')
+            
             else:    
                 if session.get('id'):
                     id1 = session.get('id')
