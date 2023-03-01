@@ -1,6 +1,7 @@
 }JUEGO MEMORAMA
 **COMO VER LOGS DE EJECUCIÓN??**
 r2 .. 
+DEBUG LINE 18.
   - Codificar evaluacion, sumando los puntos actuales.
 
 *¿Funciones independientes?*
