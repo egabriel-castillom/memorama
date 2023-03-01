@@ -16,14 +16,16 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
         if request.method == 'POST':                                                             
             if session.get('F'):
                 if session.get('P'):
-                    id1 = session.get('id')
-                    id2 = session.get('iD')
-                    P = session.get('P')
-                    message = 'La ronda 1 es correcta, vuelve a iniciar ronda 2'
-                    session.pop('r2id')
-                    session.pop('r2iD')
-                    session.pop('F')
-                    return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo, p=P)
+                    message = 'Si jala'
+                    return render_template('main_memo.html',message = message)
+                    #id1 = session.get('id')
+                    #id2 = session.get('iD')
+                    #P = session.get('P')
+                    #message = 'La ronda 1 es correcta, vuelve a iniciar ronda 2'
+                    #session.pop('r2id')
+                    #session.pop('r2iD')
+                    #session.pop('F')
+                    #return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo, p=P)
                 else:
                     session.clear()
                     return render_template('main_memo.html')
