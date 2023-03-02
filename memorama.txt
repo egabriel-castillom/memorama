@@ -3,6 +3,8 @@
 r2 .. 
 DEBUG LINE 18.
   - Codificar evaluacion, sumando los puntos actuales.
+Al momento de hacer una eleccion incorrecta, omitir el boton reintentar, y solamente
+eliminar las selecciones, y rehabilitar la opción para seleccionar. 
 
 *¿Funciones independientes?*
 UTILIZAR SESSION DE FLASK, PARA MOSTRAR/OCULTAR AL SELECCIONAR TARJETA"
