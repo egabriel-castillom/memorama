@@ -23,7 +23,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     session.pop('r2id',None)
                     session.pop('r2iD',None)
                     session.pop('F',None)
-                    return render_template('main_memo.html',id=id1,iD=id2,message=message,rf=rfo, p=P)
+                    return render_template('main_memo.html',id=id1,iD=id2,message=message, p=P)
                 else:
                     session.clear()
                     return render_template('main_memo.html')
