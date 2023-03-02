@@ -1,17 +1,10 @@
-}JUEGO MEMORAMA
+JUEGO MEMORAMA
 **COMO VER LOGS DE EJECUCIÓN??**
-r2 .. 
-DEBUG LINE 18.
-  - Codificar evaluacion, sumando los puntos actuales.
-Al momento de hacer una eleccion incorrecta, omitir el boton reintentar, y solamente
-eliminar las selecciones, y rehabilitar la opción para seleccionar. 
+*¿Funciones independientes?* *PRIMERO TERMINAR EL JUEGO BASICO ANTES, DESPUES OPTIMIZAR CODIGO*
 
-*¿Funciones independientes?*
-UTILIZAR SESSION DE FLASK, PARA MOSTRAR/OCULTAR AL SELECCIONAR TARJETA"
-"COMPARACION DE SELECCION, SI ES COINCIDENTE DEVUELVE 1 PUNTO CON ECHO "
-
-*** switch para OCULTAR remover id /MOSTRAR CONTENIDO agregar id 
-mediante funcion almacenar ID inicial y comparar con segundo id ***
+Codificar siguientes rondas manteniendo el puntaje:
+- Si selecciones no estan en resultados. (NOT IN RESULTS, id x + iD y = rf z), Reintentar sin tener que presionar el botón.
+- Errores hacer la misma seleccion en una ronda. (ALREADY SELECTED IN PREVIOUS ROUND or ALREADY SELECTED IN CURRENT ROUND)
 
 Se requieren imagenes de un tema especifico. *web scraping script*
 Un inicio de sesion, que lleve la cuenta del puntaje *record mas alto*.
