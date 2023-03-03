@@ -21,6 +21,15 @@ body {
 .MID .rf {
     text-align: center;
 }
+
+.MID .p {
+    text-align: center;
+}
+
+.MID .F {
+    text-align: center;
+}
+
 .tiempo {
     text-align: center;
     font-size: 60px;
@@ -31,7 +40,7 @@ body {
     padding: 5%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     aspect-ratio: 1;
 }
 
