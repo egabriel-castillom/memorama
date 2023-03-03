@@ -52,7 +52,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                             r2rfo = 'CORRECTO ' + r2rf
                             r2p = int(session.get('P'))
                             r2P = str(r2p+1)
-                            session['P'] = r2P
+                            session['P'] = 'PUNTAJE ACTUAL: ' + r2P
                             return render_template('main_memo.html',id=id,iD=iD,id1=r2id,iD1=r2iD,message=message, p=r2P, rf = r2rfo)
                         else:
                             r2rfo = 'NO SE ENCUENTRA EN RESULTADOS | id ' + r2id + ' + iD ' + r2iD + ' = ' + r2rf
@@ -91,7 +91,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         if RF in results:
                             rfo = 'CORRECTO ' + rf
                             P = str(p+1)
-                            session['P'] = P
+                            session['P'] = 'PUNTAJE ACTUAL: ' + P
                             return render_template('main_memo.html',id=id,iD=iD,message=message,rf=rfo, p=P)
                         else:
                             rfo = 'NO SE ENCUENTRA EN RESULTADOS | id ' + id + ' + iD ' + iD + ' = ' + rf
