@@ -42,7 +42,6 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         session['r2iD'] = r2iD
                         r2id = session.get('r2id')
                         message = r2iD + ' iD en sesión2'
-                        P = session.get('P')
                         r2a = float(r2id)
                         r2b = float(r2iD)
                         r2RF = r2a + r2b
@@ -52,8 +51,9 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                             r2rfo = 'CORRECTO ' + r2rf
                             r2p = int(session.get('P'))
                             r2P = str(r2p+1)
-                            session['P'] = 'PUNTAJE ACTUAL: ' + r2P
-                            return render_template('main_memo.html',id=id,iD=iD,id1=r2id,iD1=r2iD,message=message, p=r2P, rf = r2rfo)
+                            session['P'] = r2P
+                            r2PA = 'PUNTAJE ACTUAL: ' + r2P
+                            return render_template('main_memo.html',id=id,iD=iD,id1=r2id,iD1=r2iD,message=message, p=r2PA, rf = r2rfo)
                         else:
                             r2rfo = 'NO SE ENCUENTRA EN RESULTADOS | id ' + r2id + ' + iD ' + r2iD + ' = ' + r2rf
                             session['F'] = 1
@@ -91,8 +91,9 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         if RF in results:
                             rfo = 'CORRECTO ' + rf
                             P = str(p+1)
-                            session['P'] = 'PUNTAJE ACTUAL: ' + P
-                            return render_template('main_memo.html',id=id,iD=iD,message=message,rf=rfo, p=P)
+                            session['P'] = P
+                            PA = 'PUNTAJE ACTUAL: ' + P
+                            return render_template('main_memo.html',id=id,iD=iD,message=message,rf=rfo, p=PA)
                         else:
                             rfo = 'NO SE ENCUENTRA EN RESULTADOS | id ' + id + ' + iD ' + iD + ' = ' + rf
                             session['F'] = 1
