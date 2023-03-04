@@ -8,6 +8,7 @@ Codificar siguientes rondas manteniendo el puntaje:
 - Si selecciones no estan en resultados. (NOT IN RESULTS, id x + iD y = rf z), Reintentar sin tener que presionar el botón.
 - Errores hacer la misma seleccion en una ronda. (ALREADY SELECTED IN PREVIOUS ROUND or ALREADY SELECTED IN CURRENT ROUND)
 
+
 Se requieren imagenes de un tema especifico. *web scraping script*
 Un inicio de sesion, que lleve la cuenta del puntaje *record mas alto*.
 El record es... mayor numero de puntos en 1 minuto.
