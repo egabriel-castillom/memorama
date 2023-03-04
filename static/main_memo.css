@@ -11,7 +11,7 @@ body {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1.0fr .5fr .5fr .5fr 4.5fr;
+    grid-template-rows: .25fr .25fr .25fr .25fr 5fr;
 }
 
 .MID .message {
