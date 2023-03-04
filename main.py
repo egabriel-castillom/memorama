@@ -18,7 +18,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 if session.get('P'):
                     id1 = session.get('id')
                     id2 = session.get('iD')
-                    P = session.get('P')
+                    P = 'PUNTAJE ACTUAL: ' + session.get('P')
                     message = 'La ronda 1 es correcta, vuelve a iniciar ronda 2'
                     session.pop('r2id',None)
                     session.pop('r2iD',None)
