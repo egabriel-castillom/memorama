@@ -31,6 +31,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 id = session.get('id')
                 iD = session.get('iD')
                 if session.get('r2id'):
+                    r2id = session.get('r2id')
                     r2iD = request.form.get('id')
                     if r2iD == id:
                         message = 'Ya se ha seleccionado previamente el id (' + id + ')'
@@ -38,6 +39,11 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     elif r2iD == iD:
                         message = 'Ya se ha seleccionado previamente el iD (' + iD + ')'
                         return render_template('main_memo.html',id=id,iD=iD,message=message)
+                    elif r2iD == r2id:
+                        session.pop('r2id')
+                        PA = 'PUNTAJE ACTUAL ' + session.get('P')
+                        message = 'Se ha quitado la seleccion'
+                        return render_template('main_memo.html',id=id,iD=iD,message=message, p=PA)
                     else:
                         session['r2iD'] = r2iD
                         r2id = session.get('r2id')
