@@ -70,7 +70,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     else:
                         session['r2id'] = r2id
                         message = r2id + ' id en sesión2'
-                        P = session.get('P')
+                        P = 'PUNTAJE ACTUAL: ' + session.get('P')
                         return render_template('main_memo.html',id=id,iD=iD,id1=r2id,message=message, p=P)
             else:    
                 if session.get('id'):
