@@ -3,10 +3,12 @@ JUEGO MEMORAMA
 *¿Funciones independientes?* *PRIMERO TERMINAR EL JUEGO BASICO ANTES, DESPUES OPTIMIZAR CODIGO*
 
 Codificar siguientes rondas manteniendo el puntaje:
+. Al hacer la seleccion mostrar id/iD en sesión: (x)
 - Already selected, generalizar en español para todas las rondas. 
 - Mostrar el puntaje actual incluso en la seleccion individual de id
+- Errores hacer la misma seleccion en una ronda. (ALREADY SELECTED IN PREVIOUS ROUND or ALREADY SELECTED IN CURRENT ROUND) !!!!!
 - Si selecciones no estan en resultados. (NOT IN RESULTS, id x + iD y = rf z), Reintentar sin tener que presionar el botón.
-- Errores hacer la misma seleccion en una ronda. (ALREADY SELECTED IN PREVIOUS ROUND or ALREADY SELECTED IN CURRENT ROUND)
+
 
 
 Se requieren imagenes de un tema especifico. *web scraping script*
