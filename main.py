@@ -33,15 +33,15 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 if session.get('r2id'):
                     r2iD = request.form.get('id')
                     if r2iD == id:
-                        message = 'Already selected ' + id
+                        message = 'Ya se ha seleccionado previamente el id (' + id + ')'
                         return render_template('main_memo.html',id=id,iD=iD,message=message)
                     elif r2iD == iD:
-                        message = 'Already selected ' + iD
+                        message = 'Ya se ha seleccionado previamente el iD (' + iD + ')'
                         return render_template('main_memo.html',id=id,iD=iD,message=message)
                     else:
                         session['r2iD'] = r2iD
                         r2id = session.get('r2id')
-                        message = r2iD + ' iD en sesión2'
+                        message = '(' + r2iD + ') iD en sesión2'
                         r2a = float(r2id)
                         r2b = float(r2iD)
                         r2RF = r2a + r2b
@@ -55,21 +55,21 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                             r2PA = 'PUNTAJE ACTUAL: ' + r2P
                             return render_template('main_memo.html',id=id,iD=iD,id1=r2id,iD1=r2iD,message=message, p=r2PA, rf = r2rfo)
                         else:
-                            r2rfo = 'NO SE ENCUENTRA EN RESULTADOS | id ' + r2id + ' + iD ' + r2iD + ' = ' + r2rf
+                            r2rfo = 'NO SE ENCUENTRA EN RESULTADOS | id (' + r2id + ') + iD (' + r2iD + ') = (' + r2rf + ').'
                             session['F'] = 1
                             F = session.get('F')
                             return render_template('main_memo.html',id=id,iD=iD,rf=r2rfo,F=F)                       		        	                            
                 else:
                     r2id = request.form.get('id')
                     if r2id == id:
-                        message = 'Already selected ' + id
+                        message = 'Ya se ha seleccionado previamente el id (' + id + ')'
                         return render_template('main_memo.html',id=id,iD=iD,message=message)
                     elif r2id == iD:
-                        message = 'Already selected ' + iD
+                        message = 'Ya se ha seleccionado previamente el iD (' + iD + ')'
                         return render_template('main_memo.html',id=id,iD=iD,message=message)
                     else:
                         session['r2id'] = r2id
-                        message = r2id + ' id en sesión2'
+                        message = '(' + r2id + ') id en sesión2'
                         P = 'PUNTAJE ACTUAL: ' + session.get('P')
                         return render_template('main_memo.html',id=id,iD=iD,id1=r2id,message=message, p=P)
             else:    
@@ -82,7 +82,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         return render_template('main_memo.html',message=message)                                     
                     else:
                         session['iD'] = iD                    
-                        message = id + ' , ' + iD + ' ids en sesion.'             
+                        message = '(' + id + ') , (' + iD + ') ids en sesion.'             
                         a = float(id)
                         b = float(iD)
                         RF = a + b
@@ -95,14 +95,14 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                             PA = 'PUNTAJE ACTUAL: ' + P
                             return render_template('main_memo.html',id=id,iD=iD,message=message,rf=rfo, p=PA)
                         else:
-                            rfo = 'NO SE ENCUENTRA EN RESULTADOS | id ' + id + ' + iD ' + iD + ' = ' + rf
+                            rfo = 'NO SE ENCUENTRA EN RESULTADOS | id (' + id + ') + iD (' + iD + ') = ' + rf
                             session['F'] = 1
                             F = session.get('F')
                             return render_template('main_memo.html',id=id,iD=iD,rf=rfo,F=F)                       		        	
                 else:
                     id = str(request.form.get('id'))
                     session['id'] = id                                
-                    message = id + ' id en sesion.'    
+                    message = '(' + id + ') id en sesion.'    
                     return render_template('main_memo.html',id=id,message=message)        
                     #session.clear()
                     #click.echo('SESION REINICIADA.')
