@@ -28,8 +28,10 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     session.clear()
                     return render_template('main_memo.html')
             elif session.get('P') == '2':
+                id = session.get('id')
+                iD = session.get('iD')
                 message = 'TERCERA RONDA WE'
-                return render_template('main_memo.html',message=message)
+                return render_template('main_memo.html',message=message, id=id,iD=iD)
             elif session.get('P'):
                 id = session.get('id')
                 iD = session.get('iD')
