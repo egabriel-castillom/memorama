@@ -32,9 +32,16 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 iD = session.get('iD')
                 r2id = session.get('r2id')
                 r2iD = session.get('r2iD')
-                message = 'TERCERA RONDA WE'
                 r3id = request.form.get('id')
-                return render_template('main_memo.html',message=message, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id)
+                if r3id == id:
+                    message = 'IGUAL A id WE'
+                    return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
+                elif r3id == iD:
+                    message = 'IGUAL A iD WE'    
+                    return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
+                else:
+                    message = 'TA BIEN ... '
+                    return render_template('main_memo.html',message=message, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id)
             elif session.get('P'):
                 id = session.get('id')
                 iD = session.get('iD')
