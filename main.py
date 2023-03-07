@@ -33,12 +33,9 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 iD = session.get('iD')
                 r2id = session.get('r2id')
                 r2iD = session.get('r2iD')
-                PA = 'PUNTAJE ACTUAL: ' + session.get('P')
-                if r3id == id:
-                    message = 'Ya se ha seleccionado ' + id + ' en la primer sesión.'
-                    return render_template('main_memo.html',message=message,id=id,iD=iD,id1=r2id,iD1=r2iD,p=PA)
-                else:    
-                    return render_template('main_memo.html',message=message)
+                PA = 'PUNTAJE ACTUAL: ' + session.get('P')'
+                message = 'SI JALA WE'
+                return render_template('main_memo.html',message=message,id=id,iD=iD,id1=r2id,iD1=r2iD,p=PA)
             elif session.get('P'):
                 id = session.get('id')
                 iD = session.get('iD')
