@@ -34,10 +34,16 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 r2iD = session.get('r2iD')
                 r3id = request.form.get('id')
                 if r3id == id:
-                    message = 'IGUAL A id WE'
+                    message = 'Ya se ha seleccionado previamente el id (' + id + ') en la primer ronda'
                     return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
                 elif r3id == iD:
-                    message = 'IGUAL A iD WE'    
+                    message = 'Ya se ha seleccionado previamente el iD (' + iD + ') en la primer ronda'    
+                    return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
+                elif r3id == r2id:
+                    message = 'Ya se ha seleccionado previamente el id (' + r2id + ') en la segunda ronda'
+                    return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
+                elif r3id == r2iD:
+                    message = 'Ya se ha seleccionado previamente el iD (' + iD + ') en la segunda ronda'    
                     return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
                 else:
                     message = 'TA BIEN ... '
@@ -49,10 +55,10 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     r2id = session.get('r2id')
                     r2iD = request.form.get('id')
                     if r2iD == id:
-                        message = 'Ya se ha seleccionado previamente el id (' + id + ')'
+                        message = 'Ya se ha seleccionado previamente el id (' + id + ') en la primer ronda'
                         return render_template('main_memo.html',id=id,iD=iD,message=message)
                     elif r2iD == iD:
-                        message = 'Ya se ha seleccionado previamente el iD (' + iD + ')'
+                        message = 'Ya se ha seleccionado previamente el iD (' + iD + ') en la primer ronda'
                         return render_template('main_memo.html',id=id,iD=iD,message=message)
                     elif r2iD == r2id:
                         session.pop('r2id')
@@ -83,10 +89,10 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 else:
                     r2id = request.form.get('id')
                     if r2id == id:
-                        message = 'Ya se ha seleccionado previamente el id (' + id + ')'
+                        message = 'Ya se ha seleccionado previamente el id (' + id + ') en la primer ronda'
                         return render_template('main_memo.html',id=id,iD=iD,message=message)
                     elif r2id == iD:
-                        message = 'Ya se ha seleccionado previamente el iD (' + iD + ')'
+                        message = 'Ya se ha seleccionado previamente el iD (' + iD + ') en la primer ronda'
                         return render_template('main_memo.html',id=id,iD=iD,message=message)
                     else:
                         session['r2id'] = r2id
