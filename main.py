@@ -16,14 +16,14 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
         if request.method == 'POST':                                                             
             if session.get('F'):
                 if session.get('P'):
-                    id1 = session.get('id')
-                    id2 = session.get('iD')
+                    id = session.get('id')
+                    iD = session.get('iD')
                     P = 'PUNTAJE ACTUAL: ' + session.get('P')
                     message = 'La ronda 1 es correcta, vuelve a iniciar ronda 2'
                     session.pop('r2id',None)
                     session.pop('r2iD',None)
                     session.pop('F',None)
-                    return render_template('main_memo.html',id=id1,iD=id2,message=message, p=P)
+                    return render_template('main_memo.html',id=id,iD=iD,message=message, p=P)
                 else:
                     session.clear()
                     return render_template('main_memo.html')
@@ -33,7 +33,8 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 r2id = session.get('r2id')
                 r2iD = session.get('r2iD')
                 message = 'TERCERA RONDA WE'
-                return render_template('main_memo.html',message=message, id=id,iD=iD,id1=r2id,iD1=r2iD)
+                r3id = request.form.get('id')
+                return render_template('main_memo.html',message=message, id=id,iD=iD,id2=r2id,iD2=r2iD)
             elif session.get('P'):
                 id = session.get('id')
                 iD = session.get('iD')
@@ -66,7 +67,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                             r2P = str(r2p+1)
                             session['P'] = r2P
                             r2PA = 'PUNTAJE ACTUAL: ' + r2P
-                            return render_template('main_memo.html',id=id,iD=iD,id1=r2id,iD1=r2iD,message=message, p=r2PA, rf = r2rfo)
+                            return render_template('main_memo.html',id=id,iD=iD,id2=r2id,iD2=r2iD,message=message, p=r2PA, rf = r2rfo)
                         else:
                             r2rfo = 'NO SE ENCUENTRA EN RESULTADOS | id (' + r2id + ') + iD (' + r2iD + ') = (' + r2rf + ').'
                             session['F'] = 1
@@ -84,7 +85,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         session['r2id'] = r2id
                         message = '(' + r2id + ') id en sesión2'
                         P = 'PUNTAJE ACTUAL: ' + session.get('P')
-                        return render_template('main_memo.html',id=id,iD=iD,id1=r2id,message=message, p=P)
+                        return render_template('main_memo.html',id=id,iD=iD,id2=r2id,message=message, p=P)
             else:    
                 if session.get('id'):
                     id = session.get('id')
