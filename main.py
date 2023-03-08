@@ -127,7 +127,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                             F = session.get('F')
                             return render_template('main_memo.html',id=id,iD=iD,rf=rfo,F=F)                       		        	
                 else:
-                    id = str(request.form.get('id'))
+                    id = request.form.get('id')
                     session['id'] = id                                
                     message = '(' + id + ') id en sesion.'    
                     return render_template('main_memo.html',id=id,message=message)        
