@@ -33,8 +33,25 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 r2id = session.get('r2id')
                 r2iD = session.get('r2iD')
                 if session.get('r3id'):
-                    #r3id = session.get('r3id')
-                    pass
+                    r3id = session.get('r3id')
+                    r3iD = request.method.get('id')
+                    r3a = float(r3id)
+                    r3b = float(r3iD)
+                    r3RF = r3a + r3b
+                    r3rf = str(r3RF)
+                    results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
+                    if r3RF in results:
+                        r3rfo = 'CORRECTO ' + r3rf
+                        r3p = int(session.get('P'))
+                        r3P = str(r3p+1)
+                        session['P'] = r3P
+                        r3PA = 'PUNTAJE ACTUAL: ' + r3P
+                        return render_template('main_memo.html',id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,message=message, p=r3PA, rf = r3rfo)
+                    else:
+                        r3rfo = 'NO SE ENCUENTRA EN RESULTADOS | id (' + r3id + ') + iD (' + r3iD + ') = (' + r3rf + ').'
+                        session['F'] = 1
+                        F = session.get('F')
+                        return render_template('main_memo.html',id=id,iD=iD,id2=r2id,iD3=r2iD,rf=r3rfo,F=F)
                 else:
                     r3id = request.form.get('id')
                     if r3id == id:
@@ -79,18 +96,18 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         r2RF = r2a + r2b
                         r2rf = str(r2RF)
                         results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
-                        if r2RF in results:
-                            r2rfo = 'CORRECTO ' + r2rf
-                            r2p = int(session.get('P'))
-                            r2P = str(r2p+1)
-                            session['P'] = r2P
-                            r2PA = 'PUNTAJE ACTUAL: ' + r2P
-                            return render_template('main_memo.html',id=id,iD=iD,id2=r2id,iD2=r2iD,message=message, p=r2PA, rf = r2rfo)
-                        else:
-                            r2rfo = 'NO SE ENCUENTRA EN RESULTADOS | id (' + r2id + ') + iD (' + r2iD + ') = (' + r2rf + ').'
-                            session['F'] = 1
-                            F = session.get('F')
-                            return render_template('main_memo.html',id=id,iD=iD,rf=r2rfo,F=F)                       		        	                            
+                    if r2RF in results:
+                        r2rfo = 'CORRECTO ' + r2rf
+                        r2p = int(session.get('P'))
+                        r2P = str(r2p+1)
+                        session['P'] = r2P
+                        r2PA = 'PUNTAJE ACTUAL: ' + r2P
+                        return render_template('main_memo.html',id=id,iD=iD,id2=r2id,iD2=r2iD,message=message, p=r2PA, rf = r2rfo)
+                    else:
+                        r2rfo = 'NO SE ENCUENTRA EN RESULTADOS | id (' + r2id + ') + iD (' + r2iD + ') = (' + r2rf + ').'
+                        session['F'] = 1
+                        F = session.get('F')
+                        return render_template('main_memo.html',id=id,iD=iD,rf=r2rfo,F=F)                       		        	                            
                 else:
                     r2id = request.form.get('id')
                     if r2id == id:
