@@ -34,13 +34,30 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 r2iD = session.get('r2iD')
                 if session.get('r3id'):
                     r3id = session.get('r3id')
-                    r3iD = request.method.get('id')
+                    r3iD = request.form.get('id')
                     r3a = float(r3id)
                     r3b = float(r3iD)
                     r3RF = r3a + r3b
                     r3rf = str(r3RF)
                     results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
-                    if r3RF in results:
+                    if r3iD == id:
+                        message = 'Ya se ha seleccionado previamente el id (' + id + ') en la primer ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
+                    elif r3iD == iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + iD + ') en la primer ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
+                    elif r3iD == r2id:
+                        message = 'Ya se ha seleccionado previamente el id (' + r2id + ') en la segunda ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
+                    elif r3iD == r2iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + iD + ') en la segunda ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
+                    elif r3iD == r3id:
+                        session.pop('r3id')
+                        PA = 'PUNTAJE ACTUAL ' + session.get('P')
+                        message = 'Se ha quitado la seleccion'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD,p=PA)
+                    elif r3RF in results:
                         r3rfo = 'CORRECTO ' + r3rf
                         r3p = int(session.get('P'))
                         r3P = str(r3p+1)
@@ -67,7 +84,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         message = 'Ya se ha seleccionado previamente el iD (' + iD + ') en la segunda ronda'    
                         return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
                     else:
-                        session['id'] = r3id                                
+                        session['r3id'] = r3id                                
                         message = '(' + r3id + ') id en sesión3.'            
                         return render_template('main_memo.html',message=message, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id)
             elif session.get('P'):
