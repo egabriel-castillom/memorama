@@ -15,7 +15,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     def memo():
         if request.method == 'POST':                                                             
             if session.get('F'):
-                if session.get('P'):
+                if session.get('P') == '1':
                     id = session.get('id')
                     iD = session.get('iD')
                     P = 'PUNTAJE ACTUAL: ' + session.get('P')
@@ -24,6 +24,17 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     session.pop('r2iD',None)
                     session.pop('F',None)
                     return render_template('main_memo.html',id=id,iD=iD,message=message, p=P)
+                elif session.get('P') == '2':
+                    id = session.get('id')
+                    iD = session.get('iD')
+                    r2id = session.get('r2id')
+                    r2iD = session.get('r2iD')
+                    P = 'PUNTAJE ACTUAL: ' + session.get('P')
+                    message = 'La ronda 2 es correcta, vuelve a iniciar ronda 3'
+                    session.pop('r3id',None)
+                    session.pop('r3iD',None)
+                    session.pop('F',None)
+                    return render_template('main_memo.html',id=id,iD=iD,message=message,id2=r2id,iD2=r2iD,p=P)
                 else:
                     session.clear()
                     return render_template('main_memo.html')
@@ -54,9 +65,9 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
                     elif r3iD == r3id:
                         session.pop('r3id')
-                        PA = 'PUNTAJE ACTUAL ' + session.get('P')
+                        r3PA = 'PUNTAJE ACTUAL ' + session.get('P')
                         message = 'Se ha quitado la seleccion'    
-                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD,p=PA)
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD,p=r3PA)
                     elif r3RF in results:
                         r3rfo = 'CORRECTO ' + r3rf
                         r3p = int(session.get('P'))
