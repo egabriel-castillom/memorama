@@ -50,7 +50,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     r3b = float(r3iD)
                     r3RF = r3a + r3b
                     r3rf = str(r3RF)
-                    results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
+                    results=[1.1, 2.2, 3.3, 4.4, 5.5, 6.6]
                     if r3iD == id:
                         message = 'Ya se ha seleccionado previamente el id (' + id + ') en la primer ronda'
                         return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
@@ -123,7 +123,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         r2b = float(r2iD)
                         r2RF = r2a + r2b
                         r2rf = str(r2RF)
-                        results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
+                        results=[1.1, 2.2, 3.3, 4.4, 5.5, 6.6]
                     if r2RF in results:
                         r2rfo = 'CORRECTO ' + r2rf
                         r2p = int(session.get('P'))
@@ -164,7 +164,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         b = float(iD)
                         RF = a + b
                         rf = str(RF)
-                        results=[2.1, 4.1, 6.1, 8.1, 10.1, 12.1]
+                        results=[1.1, 2.2, 3.3, 4.4, 5.5, 6.6]
                         if RF in results:
                             rfo = 'CORRECTO ' + rf
                             P = str(p+1)
