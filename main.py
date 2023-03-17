@@ -106,10 +106,10 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     r2iD = request.form.get('id')
                     if r2iD == id:
                         message = 'Ya se ha seleccionado previamente el id (' + id + ') en la primer ronda'
-                        return render_template('main_memo.html',id=id,iD=iD,message=message)
+                        return render_template('main_memo.html',id=id,iD=iD,message=message,id2=r2id)
                     elif r2iD == iD:
                         message = 'Ya se ha seleccionado previamente el iD (' + iD + ') en la primer ronda'
-                        return render_template('main_memo.html',id=id,iD=iD,message=message)
+                        return render_template('main_memo.html',id=id,iD=iD,message=message,id2=r2id)
                     elif r2iD == r2id:
                         session.pop('r2id')
                         PA = 'PUNTAJE ACTUAL ' + session.get('P')
