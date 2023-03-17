@@ -53,16 +53,16 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     results=[1.1, 2.2, 3.3, 4.4, 5.5, 6.6]
                     if r3iD == id:
                         message = 'Ya se ha seleccionado previamente el id (' + id + ') en la primer ronda'
-                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id)
                     elif r3iD == iD:
                         message = 'Ya se ha seleccionado previamente el iD (' + iD + ') en la primer ronda'    
-                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id)
                     elif r3iD == r2id:
                         message = 'Ya se ha seleccionado previamente el id (' + r2id + ') en la segunda ronda'
-                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id)
                     elif r3iD == r2iD:
                         message = 'Ya se ha seleccionado previamente el iD (' + iD + ') en la segunda ronda'    
-                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD)
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id)
                     elif r3iD == r3id:
                         session.pop('r3id')
                         r3PA = 'PUNTAJE ACTUAL ' + session.get('P')
