@@ -74,7 +74,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         r3P = str(r3p+1)
                         session['P'] = r3P
                         r3PA = 'PUNTAJE ACTUAL: ' + r3P
-                        return render_template('main_memo.html',id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,message=message, p=r3PA, rf = r3rfo)
+                        return render_template('main_memo.html',id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD, p=r3PA, rf = r3rfo)
                     else:
                         r3rfo = 'NO SE ENCUENTRA EN RESULTADOS | id (' + r3id + ') + iD (' + r3iD + ') = (' + r3rf + ').'
                         session['F'] = 1
