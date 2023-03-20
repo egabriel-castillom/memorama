@@ -38,6 +38,80 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 else:
                     session.clear()
                     return render_template('main_memo.html')
+            elif session.get('P') == '3':
+                id = session.get('id')
+                iD = session.get('iD')
+                r2id = session.get('r2id')
+                r2iD = session.get('r2iD')
+                r3id = session.get('r3id')
+                r3iD = session.get('r3iD')
+                if session.get('r4id'):
+                    r4id = session.get('r4id')
+                    r4iD = request.form.get('id')
+                    r4a = float(r4id)
+                    r4b = float(r4iD)
+                    r4RF = r4a + r4b
+                    r4rf = str(r4RF)
+                    results=[1.1, 2.2, 3.3, 4.4, 5.5, 6.6]
+                    if r4iD == id:
+                        message = 'Ya se ha seleccionado previamente el id (' + id + ') en la primer ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id)
+                    elif r4iD == iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + iD + ') en la primer ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id)
+                    elif r4iD == r2id:
+                        message = 'Ya se ha seleccionado previamente el id (' + r2id + ') en la segunda ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id)
+                    elif r4iD == r2iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + r2iD + ') en la segunda ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id)
+                    elif r4iD == r3id:
+                        message = 'Ya se ha seleccionado previamente el id (' + r3id + ') en la tercera ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id)
+                    elif r4iD == r3iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + r3iD + ') en la tercera ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id)
+                    elif r4iD == r4id:
+                        session.pop('r4id')
+                        r4PA = 'PUNTAJE ACTUAL ' + session.get('P')
+                        message = 'Se ha quitado la seleccion'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id, iD3=r3iD,p=r4PA)
+                    elif r4RF in results:
+                        r4rfo = 'CORRECTO ' + r4rf
+                        r4p = int(session.get('P'))
+                        r4P = str(r4p+1)
+                        session['P'] = r4P
+                        r4PA = 'PUNTAJE ACTUAL: ' + r4P
+                        return render_template('main_memo.html',id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD, id4=r4id,iD4=r4iD,p=r4PA, rf = r4rfo)
+                    else:
+                        r4rfo = 'NO SE ENCUENTRA EN RESULTADOS | id (' + r4id + ') + iD (' + r4iD + ') = (' + r4rf + ').'
+                        session['F'] = 1
+                        F = session.get('F')
+                        return render_template('main_memo.html',id=id,iD=iD,id2=r2id,iD3=r2iD,id3=r3id,iD3=r3iD,rf=r4rfo,F=F)
+                else:
+                    r4id = request.form.get('id')
+                    if r4id == id:
+                        message = 'Ya se ha seleccionado previamente el id (' + id + ') en la primer ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD)
+                    elif r4id == iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + iD + ') en la primer ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD)
+                    elif r4id == r2id:
+                        message = 'Ya se ha seleccionado previamente el id (' + r2id + ') en la segunda ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD)
+                    elif r4id == r2iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + r2iD + ') en la segunda ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD)
+                    elif r4id == r3id:
+                        message = 'Ya se ha seleccionado previamente el id (' + r3id + ') en la tercera ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD)
+                    elif r4id == r3iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + r3iD + ') en la tercera ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD)
+                    else:
+                        session['r4id'] = r4id                                
+                        message = '(' + r4id + ') id en sesión4.'            
+                        return render_template('main_memo.html',message=message, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id)
             elif session.get('P') == '2':
                 id = session.get('id')
                 iD = session.get('iD')
