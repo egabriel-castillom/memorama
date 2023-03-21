@@ -46,7 +46,15 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 r3id = session.get('r3id')
                 r3iD = session.get('r3iD')
                 message = 'ROUND 4'
-                return render_template('main_memo.html',message=message, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD)
+                if session.get('r4id'):
+                    r4id = session.get('r4id')
+                    r4iD = request.method.get('id')
+                    session['r4iD'] = r4iD
+                    return render_template('main_memo.html',message=message, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD)
+                else:
+                    r4id = request.form.get('id')
+                    session['r4id'] = r4id
+                    return render_template('main_memo.html',message=message, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id)
             elif session.get('P') == '2':
                 id = session.get('id')
                 iD = session.get('iD')
