@@ -89,6 +89,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         r3rfo = 'CORRECTO ' + r3rf
                         r3p = int(session.get('P'))
                         r3P = str(r3p+1)
+                        session['r3iD'] = r3iD
                         session['P'] = r3P
                         r3PA = 'PUNTAJE ACTUAL: ' + r3P
                         return render_template('main_memo.html',id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD, p=r3PA, rf = r3rfo)
