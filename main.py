@@ -50,7 +50,17 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     r4id = session.get('r4id')
                     r4iD = request.method.get('id')
                     session['r4iD'] = r4iD
-                    return render_template('main_memo.html',message=message, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD)
+                    r4a = float(r4id)
+                    r4b = float(r4iD)
+                    r4RF = r4a + r4b
+                    r4rf = str(r4RF)
+                    results=[1.1, 2.2, 3.3, 4.4, 5.5, 6.6]
+                    if r4RF in results:
+                        message = 'Correcto!'
+                        return render_template('main_memo.html',message=message, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD)
+                    else:
+                        message = 'Incorrecto!'
+                        return render_template('main_memo.html',message=message, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD)
                 else:
                     r4id = request.form.get('id')
                     session['r4id'] = r4id
