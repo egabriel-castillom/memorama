@@ -62,7 +62,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 else:
                     r4id = request.form.get('id')
                     session['r4id'] = r4id
-                    return render_template('main_memo.html',message=message, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id)
+                    return render_template('main_memo.html', id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id)
             elif session.get('P') == '2':
                 id = session.get('id')
                 iD = session.get('iD')
