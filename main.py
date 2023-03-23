@@ -52,7 +52,6 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     r4a = float(r4id)
                     r4b = float(r4iD)
                     r4RF = r4a + r4b
-                    r4rf = str(r4RF)
                     results=[1.1, 2.2, 3.3, 4.4, 5.5, 6.6]
                     if r4RF in results:
                         message = 'Correcto'
