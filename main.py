@@ -45,6 +45,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 r2iD = session.get('r2iD')
                 r3id = session.get('r3id')
                 r3iD = session.get('r3iD')
+                message = 'ROUND4'
                 if session.get('r4id'):
                     r4id = session.get('r4id')
                     r4iD = request.method.get('id')
