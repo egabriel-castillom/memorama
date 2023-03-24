@@ -35,6 +35,19 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     session.pop('r3iD',None)
                     session.pop('F',None)
                     return render_template('main_memo.html',id=id,iD=iD,message=message,id2=r2id,iD2=r2iD,p=P)
+                elif session.get('P') == '3':
+                    id = session.get('id')
+                    iD = session.get('iD')
+                    r2id = session.get('r2id')
+                    r2iD = session.get('r2iD')
+                    r3id = session.get('r3id')
+                    r3iD = session.get('r3iD')
+                    P = 'PUNTAJE ACTUAL: ' + session.get('P')
+                    message = 'La ronda 3 es correcta, vuelve a iniciar ronda 4'
+                    session.pop('r4id',None)
+                    session.pop('r4iD',None)
+                    session.pop('F',None)
+                    return render_template('main_memo.html',id=id,iD=iD,message=message,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,p=P)
                 else:
                     session.clear()
                     return render_template('main_memo.html')
@@ -52,6 +65,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     r4a = float(r4id)
                     r4b = float(r4iD)
                     r4rf = r4a + r4b                   
+                    r4RF = str(r4rf)
                     if r4iD == id:
                         message = 'Ya se ha seleccionado previamente el id (' + id + ') en la primer ronda'
                         return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id)
@@ -75,9 +89,10 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         session['r4iD'] = r4iD
                         return render_template('main_memo.html',message=message, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD)
                     else:
-                        message = 'Incorrect'
-                        session.pop('r3id')
-                        return render_template('main_memo.html',message=message, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD)
+                        r4rfo = 'NO SE ENCUENTRA EN RESULTADOS | id (' + r4id + ') + iD (' + r4iD + ') = (' + r4RF + ').'
+                        session['F'] = 1
+                        F = session.get('F')
+                        return render_template('main_memo.html',message=r4rfo, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD, F=F)
                 else:
                     r4id = request.form.get('id')
                     if r4id== id:
