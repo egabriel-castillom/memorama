@@ -1,6 +1,7 @@
 JUEGO MEMORAMA
 **COMO VER LOGS DE EJECUCIÓN??**
 *¿Funciones independientes?* *PRIMERO TERMINAR EL JUEGO BASICO ANTES, DESPUES OPTIMIZAR CODIGO*
+*ERRORES PARA LA RONDA 5, CONFIRMALOS*
 
 Codificar siguientes rondas manteniendo el puntaje:
 . Al hacer la seleccion mostrar id/iD en sesión: (x)
