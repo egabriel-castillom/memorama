@@ -133,7 +133,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id,iD3=r3iD, id4=r4id,iD4=r4iD)
                     session['r5id'] = r5id
                     message = '(' + r5id + ') id en sesión5.'            
-                    return render_template('main_memo.html', id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD,message=message)
+                    return render_template('main_memo.html', id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,message=message)
             elif session.get('P') == '3':
                 id = session.get('id')
                 iD = session.get('iD')
