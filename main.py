@@ -91,7 +91,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         session['P'] = r4P
                         r4PA = 'PUNTAJE ACTUAL: ' + r4P
                         session['r4iD'] = r4iD
-                        return render_template('main_memo.html',id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD,p=r4PA)
+                        return render_template('main_memo.html',id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD,rf=r4rfo,p=r4PA)
                     else:
                         r4rfo = 'NO SE ENCUENTRA EN RESULTADOS | id (' + r4id + ') + iD (' + r4iD + ') = (' + r4rf + ').'
                         session['F'] = 1
