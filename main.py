@@ -63,9 +63,128 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     session.pop('r5iD',None)
                     session.pop('F',None)
                     return render_template('main_memo.html',id=id,iD=iD,message=message,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD,p=P)
+                elif session.get('P') == '5':
+                    id = session.get('id')
+                    iD = session.get('iD')
+                    r2id = session.get('r2id')
+                    r2iD = session.get('r2iD')
+                    r3id = session.get('r3id')
+                    r3iD = session.get('r3iD')
+                    r4id = session.get('r4id')
+                    r4iD = session.get('r4iD')
+                    r5id = session.get('r5id')
+                    r5iD = session.get('r5iD')
+                    P = 'PUNTAJE ACTUAL: ' + session.get('P')
+                    message = 'La ronda 5 es correcta, vuelve a iniciar ronda 6'
+                    session.pop('r6id',None)
+                    session.pop('r6iD',None)
+                    session.pop('F',None)
+                    return render_template('main_memo.html',id=id,iD=iD,message=message,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD,p=P)
                 else:
                     session.clear()
                     return render_template('main_memo.html')
+            elif session.get('P') == '5':
+                id = session.get('id')
+                iD = session.get('iD')
+                r2id = session.get('r2id')
+                r2iD = session.get('r2iD')
+                r3id = session.get('r3id')
+                r3iD = session.get('r3iD')
+                r4id = session.get('r4id')
+                r4iD = session.get('r4iD')
+                r5id = session.get('r5id')
+                r5iD = session.get('r5iD')
+                results = [1.1,2.2,3.3,4.4,5.5,6.6]
+                if session.get('r6id'):
+                    r6id = session.get('r6id')
+                    r6iD = request.form.get('id')
+                    r6a = float(r6id)
+                    r6b = float(r6iD)
+                    r6RF = r6a + r6b                   
+                    r6rf = str(r6RF)
+                    if r6iD == id:
+                        message = 'Ya se ha seleccionado previamente el id (' + id + ') en la primer ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD,id6=r6id)
+                    elif r6iD == iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + iD + ') en la primer ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD,id6=r6id)
+                    elif r6iD == r2id:
+                        message = 'Ya se ha seleccionado previamente el id (' + r2id + ') en la segunda ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD,id6=r6id)
+                    elif r6iD == r2iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + r2iD + ') en la segunda ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD,id6=r6id)
+                    elif r6iD == r3id:
+                        message = 'Ya se ha seleccionado previamente el id (' + r3id + ') en la tercera ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD,id6=r6id)
+                    elif r6iD == r3iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + r3iD + ') en la tercera ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD,id6=r6id)
+                    elif r6iD == r4id:
+                        message = 'Ya se ha seleccionado previamente el id (' + r4id + ') en la cuarta ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD,id6=r6id)
+                    elif r6iD == r4iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + r4iD + ') en la cuarta ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD,id6=r6id)
+                    elif r6iD == r5id:
+                        message = 'Ya se ha seleccionado previamente el id (' + r5id + ') en la quinta ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD,id6=r6id)
+                    elif r6iD == r5iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + r5iD + ') en la quinta ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD,id6=r6id)
+                    elif r6iD == r6id:
+                        session.pop('r6id')
+                        r6PA = 'PUNTAJE ACTUAL ' + session.get('P')
+                        message = 'Se ha quitado la seleccion'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD, id4=r4id, iD4=r4iD,id5=r5id,iD5=r5iD, p=r6PA)
+                    if r6RF in results:
+                        r6rfo = 'CORRECTO ' + r6rf
+                        r6p = int(session.get('P'))
+                        r6P = str(r6p+1)
+                        session['P'] = r6P
+                        r6PA = 'PUNTAJE ACTUAL: ' + r6P
+                        session['r6iD'] = r6iD
+                        return render_template('main_memo.html',id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD,id6=r6id,iD6=r6iD,rf=r6rfo,p=r6PA)
+                    else:
+                        r6rfo = 'NO SE ENCUENTRA EN RESULTADOS | id (' + r6id + ') + iD (' + r6iD + ') = (' + r6rf + ').'
+                        session['F'] = 1
+                        F = session.get('F')
+                        return render_template('main_memo.html',message=r6rfo, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD, F=F)
+                else:
+                    r6id = request.form.get('id')
+                    if r6id== id:
+                        message = 'Ya se ha seleccionado previamente el id (' + id + ') en la primer ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id,iD3=r3iD, id4=r4id,iD4=r4iD, id5=r5id,iD5=r5iD)
+                    elif r6id == iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + iD + ') en la primer ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id,iD3=r3iD, id4=r4id,iD4=r4iD, id5=r5id,iD5=r5iD)
+                    elif r6id == r2id:
+                        message = 'Ya se ha seleccionado previamente el id (' + r2id + ') en la segunda ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id,iD3=r3iD, id4=r4id,iD4=r4iD, id5=r5id,iD5=r5iD)
+                    elif r6id == r2iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + r2iD + ') en la segunda ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id,iD3=r3iD, id4=r4id,iD4=r4iD, id5=r5id,iD5=r5iD)
+                    elif r6id == r3id:
+                        message = 'Ya se ha seleccionado previamente el id (' + r3id + ') en la tercera ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id,iD3=r3iD, id4=r4id,iD4=r4iD, id5=r5id,iD5=r5iD)
+                    elif r6id == r3iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + r3iD + ') en la tercera ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id,iD3=r3iD, id4=r4id,iD4=r4iD, id5=r5id,iD5=r5iD)
+                    elif r6id == r4id:
+                        message = 'Ya se ha seleccionado previamente el id (' + r4id + ') en la cuarta ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id,iD3=r3iD, id4=r4id,iD4=r4iD, id5=r5id,iD5=r5iD)
+                    elif r6id == r4iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + r4iD + ') en la cuarta ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id,iD3=r3iD, id4=r4id,iD4=r4iD, id5=r5id,iD5=r5iD)
+                    elif r6id == r5id:
+                        message = 'Ya se ha seleccionado previamente el id (' + r5id + ') en la quinta ronda'
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id,iD3=r3iD, id4=r4id,iD4=r4iD, id5=r5id,iD5=r5iD)
+                    elif r6id == r5iD:
+                        message = 'Ya se ha seleccionado previamente el iD (' + r5iD + ') en la quinta ronda'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id,iD3=r3iD, id4=r4id,iD4=r4iD, id5=r5id,iD5=r5iD)
+                    session['r6id'] = r6id
+                    message = '(' + r6id + ') id en sesión6.'            
+                    return render_template('main_memo.html', id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD,id6=r6id,message=message)
             elif session.get('P') == '4':
                 id = session.get('id')
                 iD = session.get('iD')
