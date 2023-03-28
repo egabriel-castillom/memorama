@@ -48,6 +48,21 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     session.pop('r4iD',None)
                     session.pop('F',None)
                     return render_template('main_memo.html',id=id,iD=iD,message=message,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,p=P)
+                elif session.get('P') == '4':
+                    id = session.get('id')
+                    iD = session.get('iD')
+                    r2id = session.get('r2id')
+                    r2iD = session.get('r2iD')
+                    r3id = session.get('r3id')
+                    r3iD = session.get('r3iD')
+                    r4id = session.get('r4id')
+                    r4iD = session.get('r4iD')
+                    P = 'PUNTAJE ACTUAL: ' + session.get('P')
+                    message = 'La ronda 4 es correcta, vuelve a iniciar ronda 5'
+                    session.pop('r5id',None)
+                    session.pop('r5iD',None)
+                    session.pop('F',None)
+                    return render_template('main_memo.html',id=id,iD=iD,message=message,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD,p=P)
                 else:
                     session.clear()
                     return render_template('main_memo.html')
