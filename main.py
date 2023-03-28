@@ -107,6 +107,11 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     elif r5iD == r4iD:
                         message = 'Ya se ha seleccionado previamente el iD (' + r4iD + ') en la cuarta ronda'    
                         return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id)
+                    elif r5iD == r5id:
+                        session.pop('r5id')
+                        r5PA = 'PUNTAJE ACTUAL ' + session.get('P')
+                        message = 'Se ha quitado la seleccion'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD, id4=r4id, iD4=r4iD, p=r5PA)
                     if r5RF in results:
                         r5rfo = 'CORRECTO ' + r5rf
                         r5p = int(session.get('P'))
@@ -119,7 +124,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                         r5rfo = 'NO SE ENCUENTRA EN RESULTADOS | id (' + r5id + ') + iD (' + r5iD + ') = (' + r5rf + ').'
                         session['F'] = 1
                         F = session.get('F')
-                        return render_template('main_memo.html',message=r4rfo, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD, F=F)
+                        return render_template('main_memo.html',message=r5rfo, id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD, F=F)
                 else:
                     r5id = request.form.get('id')
                     if r5id== id:
@@ -182,6 +187,11 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     elif r4iD == r3iD:
                         message = 'Ya se ha seleccionado previamente el iD (' + r3iD + ') en la tercera ronda'    
                         return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD,id4=r4id)
+                    elif r4iD == r4id:
+                        session.pop('r4id')
+                        r4PA = 'PUNTAJE ACTUAL ' + session.get('P')
+                        message = 'Se ha quitado la seleccion'    
+                        return render_template('main_memo.html',message=message,id=id,iD=iD,id2=r2id,iD2=r2iD, id3=r3id, iD3=r3iD, p=r4PA)
                     if r4RF in results:
                         r4rfo = 'CORRECTO ' + r4rf
                         r4p = int(session.get('P'))
