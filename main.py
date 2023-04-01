@@ -14,7 +14,10 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     @app.route('/',methods=('POST','GET'))
     def memo():
         if request.method == 'POST':                                                             
-            if session.get('F'):
+            if session.get('start'):
+                startCounter = True
+                return render_template('main_memo.html',startCounter)
+            elif session.get('F'):
                 if session.get('P') == '1':
                     id = session.get('id')
                     iD = session.get('iD')
@@ -83,6 +86,21 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 else:
                     session.clear()
                     return render_template('main_memo.html')
+            elif session.get('P') == '6':
+                id = session.get('id')
+                iD = session.get('iD')
+                r2id = session.get('r2id')
+                r2iD = session.get('r2iD')
+                r3id = session.get('r3id')
+                r3iD = session.get('r3iD')
+                r4id = session.get('r4id')
+                r4iD = session.get('r4iD')
+                r5id = session.get('r5id')
+                r5iD = session.get('r5iD')            
+                r6id = session.get('r6id')
+                r6iD = session.get('r6iD')
+                message = 'Juego resuelto, felicidades!... AHORA SI VIENE LO CHIDO'            
+                return render_template('main_memo.html',id=id,iD=iD,id2=r2id,iD2=r2iD,id3=r3id,iD3=r3iD,id4=r4id,iD4=r4iD,id5=r5id,iD5=r5iD,id6=r6id,iD6=r6iD, message = message)
             elif session.get('P') == '5':
                 id = session.get('id')
                 iD = session.get('iD')
@@ -495,7 +513,10 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     #click.echo('SESION REINICIADA.')
         elif request.method == 'GET':
             session.clear()
-        return render_template('main_memo.html')
+        message = 'Bienvenido al memorama. ¿Deseas comenzar?'
+        start = 1
+        session['start'] = start
+        return render_template('main_memo.html',message=message,start=start)
     return app
 
 app = create_app()
