@@ -15,7 +15,9 @@
     </div>
     <div class="MID">
         <div class="tiempo" id="cuenta-regresiva"></div>
-        <script src="{{ url_for('static', filename='cr.js') }}"></script>
+        {% if startCounter %}
+            <script src="{{ url_for('static', filename='cr.js') }}"></script>
+        {% endif %}    
         <div class="message">
             {% if message %}
                 {{ message }}
@@ -35,6 +37,10 @@
             {% if F %}
                 <form class="carta" method="post">                    
                     <input class="switch" type="submit" value="REINTENTAR"/>                    
+                </form>                 
+            {% elif start %}
+                <form class="carta" method="post">                    
+                    <input class="switch" type="submit" value="INICIAR"/>                    
                 </form>                 
             {% endif %}
         </div>
