@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, flash
+from flask import Flask, render_template, request, session, flash, g
 from dotenv import load_dotenv
 import click
 import os
@@ -505,14 +505,14 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     id = request.form.get('id')
                     session['id'] = id                                
                     message = '(' + id + ') id en sesion.'    
-                    return render_template('main_memo.html',id=id,message=message,startCounter=startCounter)        
+                    return render_template('main_memo.html',id=id,message=message)        
                     #session.clear()
                     #click.echo('SESION REINICIADA.')
         elif request.method == 'GET':
             if session.get('start'):
-                startCounter = True
+                g.startCounter = True
                 session.pop('start',None)
-                return render_template('main_memo.html',startCounter=startCounter)
+                return render_template('main_memo.html')
             else:
                 session.clear()
         message = 'Bienvenido al memorama. ¿Deseas comenzar?'
