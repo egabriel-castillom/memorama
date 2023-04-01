@@ -505,7 +505,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     id = request.form.get('id')
                     session['id'] = id                                
                     message = '(' + id + ') id en sesion.'    
-                    return render_template('main_memo.html',id=id,message=message)        
+                    return render_template('main_memo.html',id=id,message=message,startCounter=startCounter)        
                     #session.clear()
                     #click.echo('SESION REINICIADA.')
         elif request.method == 'GET':
