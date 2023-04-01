@@ -14,10 +14,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
     @app.route('/',methods=('POST','GET'))
     def memo():
         if request.method == 'POST':                                                             
-            if session.get('start'):
-                startCounter = True
-                return render_template('main_memo.html',startCounter=startCounter)
-            elif session.get('F'):
+            if session.get('F'):
                 if session.get('P') == '1':
                     id = session.get('id')
                     iD = session.get('iD')
@@ -512,7 +509,12 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                     #session.clear()
                     #click.echo('SESION REINICIADA.')
         elif request.method == 'GET':
-            session.clear()
+            if session.get('start'):
+                startCounter = True
+                session.pop('start',None)
+                return render_template('main_memo.html',startCounter=startCounter)
+            else:
+                session.clear()
         message = 'Bienvenido al memorama. ¿Deseas comenzar?'
         start = 1
         session['start'] = start
