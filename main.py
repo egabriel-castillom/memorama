@@ -16,7 +16,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
         if request.method == 'POST':                                                             
             if session.get('start'):
                 startCounter = True
-                return render_template('main_memo.html',startCounter)
+                return render_template('main_memo.html',startCounter=startCounter)
             elif session.get('F'):
                 if session.get('P') == '1':
                     id = session.get('id')
