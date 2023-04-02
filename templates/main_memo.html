@@ -15,7 +15,8 @@
     </div>
     <div class="MID">
         <div class="tiempo" id="cuenta-regresiva"></div>
-        {% if startCounter == 1 %}
+        <input type="hidden" id="startCounter" value="{{ startCounter }}" />
+        {% if startCounter %}
             <script src="{{ url_for('static', filename='cr.js') }}"></script>
         {% endif %}    
         <div class="message">
