@@ -1,7 +1,13 @@
 let tiempoRestante: number = Number(localStorage.getItem('tiempoRestante')) || 60; // 60 segundos
 const elementoCuentaRegresiva: HTMLElement | null = document.getElementById('cuenta-regresiva');
 
+const startCounterElement = document.getElementById('startCounter') as HTMLInputElement;
+const startCounter = startCounterElement ? parseInt(startCounterElement.value) : 0;
+
 const actualizarCuentaRegresiva = (): void => {
+  if (startCounter === 1) {
+    tiempoRestante = 60;
+  }
   if (elementoCuentaRegresiva) {
     elementoCuentaRegresiva.textContent = `${tiempoRestante} segundos restantes`;
   }
