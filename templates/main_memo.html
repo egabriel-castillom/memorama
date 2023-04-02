@@ -15,7 +15,7 @@
     </div>
     <div class="MID">
         <div class="tiempo" id="cuenta-regresiva"></div>
-        {% if g.startCounter %}
+        {% if startCounter == 1 %}
             <script src="{{ url_for('static', filename='cr.js') }}"></script>
         {% endif %}    
         <div class="message">
