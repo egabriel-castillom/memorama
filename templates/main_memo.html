@@ -18,7 +18,16 @@
         <input type="hidden" id="startCounter" value="{{ startCounter }}" />
         {% if startCounter %}
             <script src="{{ url_for('static', filename='cr.js') }}"></script>
+            <script src="{{ url_for('static', filename='ran.js') }}"></script>
         {% endif %}    
+        {% if indices %}
+            <script>
+                let elements = document.querySelectorAll('.marco');
+                let parent = elements[0].parentNode;
+                let indices = {{ indices|tojson }};
+                indices.forEach(i => parent.appendChild(elements[i]));
+            </script>
+        {% endif %}
         <div class="message">
             {% if message %}
                 {{ message }}
