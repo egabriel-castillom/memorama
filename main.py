@@ -516,7 +516,7 @@ def create_app(): #SE EJECUTA SIEMPRE QUE SE GENERE UNA INSTANCIA DE LA APLICACI
                 else:
                     id = request.form.get('id')
                     session['id'] = id                                
-                    message = '(' + id + ') id en sesion.
+                    message = '(' + id + ') id en sesion.'
                     return render_template('main_memo.html', startCounter=session.get('startCounter'),id=id,message=message)        
                     #session.clear()
                     #click.echo('SESION REINICIADA.')
