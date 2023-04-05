@@ -20,14 +20,12 @@
             <script src="{{ url_for('static', filename='cr.js') }}"></script>
             <script src="{{ url_for('static', filename='ran.js') }}"></script>
         {% endif %}    
-        {% if indices %}
-            <script>
-                let elements = document.querySelectorAll('.marco');
-                let parent = elements[0].parentNode;
-                let indices = {{ indices|tojson }};
-                indices.forEach(i => parent.appendChild(elements[i]));
-            </script>
-        {% endif %}
+        <script>
+            let elements = document.querySelectorAll('.marco');
+            let parent = elements[0].parentNode;
+            let indices = {{ indices|tojson }};
+            indices.forEach(i => parent.appendChild(elements[i]));
+        </script>
         <div class="message">
             {% if message %}
                 {{ message }}
