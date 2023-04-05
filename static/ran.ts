@@ -1,5 +1,5 @@
 // Obtener todos los elementos que deseas reorganizar
-let elements: NodeListOf<Element> = document.querySelectorAll('.marco');
+let elements: NodeListOf<Element> = document.querySelectorAll('.carta');
 
 // Crear una lista de índices
 let indices: number[] = [...Array(elements.length)].map((_, i) => i);
