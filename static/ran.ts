@@ -1,24 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Obtener todos los elementos que deseas reorganizar
-    let elements: NodeListOf<Element> = document.querySelectorAll('.marco');
+    const startCounterElement = document.getElementById('startCounter') as HTMLInputElement;
+    const startCounter = startCounterElement ? parseInt(startCounterElement.value) : 0;
 
-    // Crear una lista de índices
-    let indices: number[] = [...Array(elements.length)].map((_, i) => i);
+    if (startCounter === 1) {
+        // Obtener todos los elementos que deseas reorganizar
+        let elements: NodeListOf<Element> = document.querySelectorAll('.marco');
 
-    // Mezclar aleatoriamente la lista de índices
-    for (let i: number = indices.length - 1; i > 0; i--) {
-        let j: number = Math.floor(Math.random() * (i + 1));
-        [indices[i], indices[j]] = [indices[j], indices[i]];
-    }
+        // Crear una lista de índices
+        let indices: number[] = [...Array(elements.length)].map((_, i) => i);
 
-    // Reorganizar los elementos en el orden especificado por la lista mezclada
-    let parentElement: Node | null = elements[0].parentNode;
-    indices.forEach(i => {
-        if (parentElement) {
-            parentElement.appendChild(elements[i]);
+        // Mezclar aleatoriamente la lista de índices
+        for (let i: number = indices.length - 1; i > 0; i--) {
+            let j: number = Math.floor(Math.random() * (i + 1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
         }
-    });
 
-    // Almacenar el orden de los elementos en una variable de sesión
-    sessionStorage.setItem('indices', JSON.stringify(indices));
+        // Reorganizar los elementos en el orden especificado por la lista mezclada
+        let parentElement: Node | null = elements[0].parentNode;
+        indices.forEach(i => {
+            if (parentElement) {
+                parentElement.appendChild(elements[i]);
+            }
+        });
+
+        // Almacenar el orden de los elementos en una variable de sesión
+        sessionStorage.setItem('indices', JSON.stringify(indices));
+    }
 });
