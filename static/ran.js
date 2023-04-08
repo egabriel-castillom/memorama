@@ -10,7 +10,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 document.addEventListener('DOMContentLoaded', function () {
     var _a;
     // Obtener todos los elementos que deseas reorganizar
-    var elements = document.querySelectorAll('.carta');
+    var elements = document.querySelectorAll('.marco');
     // Crear una lista de índices
     var indices = __spreadArray([], Array(elements.length), true).map(function (_, i) { return i; });
     // Mezclar aleatoriamente la lista de índices
