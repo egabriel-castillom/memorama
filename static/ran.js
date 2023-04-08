@@ -31,10 +31,4 @@ document.addEventListener('DOMContentLoaded', function () {
         // Almacenar el orden de los elementos en una variable de sesión
         sessionStorage.setItem('indices', JSON.stringify(indices));
     }
-    else if (startCounter === 2) {
-        // Recuperar el último valor de la variable de sesión 'indices'
-        var indices = JSON.parse(sessionStorage.getItem('indices'));
-        // Almacenar el valor recuperado en la variable de sesión del navegador
-        sessionStorage.setItem('indices', JSON.stringify(indices));
-    }
 });
