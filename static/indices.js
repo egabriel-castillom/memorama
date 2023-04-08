@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('load', function () {
     if (sessionStorage.getItem('indices')) {
         var elements_1 = document.querySelectorAll('.marco');
         var parent_1 = elements_1[0].parentNode;
